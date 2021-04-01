@@ -1,17 +1,12 @@
 ---
-title: Hello, world.
+title: Jacob Pfeifer
 date: Last Modified 
 permalink: /
 eleventyNavigation:
-  key: Hello 
+  key: Home
   order: 0
-  title: Hello, world.
+  title: Jacob Pfeifer
 ---
-You have successfully launched your spacebook. If you are new here, you may want to [read the docs](https://spacebook.app/) for tips and tricks on setting up your project.
-
-![Hello, world](/content/images/hello.jpg)
-
-->*Onward...*<-
-
+Welcome to jacobpfeifer.co
 
 
