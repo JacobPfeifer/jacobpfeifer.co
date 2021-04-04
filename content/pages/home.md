@@ -1,11 +1,11 @@
 ---
-title: Jacob Pfeifer
+title: Jacob Pfeifer - UX Designer
 date: Last Modified 
 permalink: /
 eleventyNavigation:
   key: Home
   order: 0
-  title: Jacob Pfeifer
+  title: WORK
 ---
 Welcome to jacobpfeifer.co
 

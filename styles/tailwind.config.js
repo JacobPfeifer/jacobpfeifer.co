@@ -51,7 +51,10 @@ module.exports = {
             },
           },
         },
-      }
+      },
+      backgroundImage: theme => ({
+        'logo': "url('/_includes/assets/images/logo.svg')",
+        })
     },
   }, 
   variants: {},
