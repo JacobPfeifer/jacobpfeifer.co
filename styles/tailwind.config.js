@@ -1,4 +1,5 @@
 const autoprefixer = require('autoprefixer');
+const { colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   important: true,
@@ -15,8 +16,24 @@ module.exports = {
   },
   darkMode: 'class',
   theme: {
+    colors: {
+      primary: '#D46A49',
+      secondary: '#A2B9B6',
+      altblack: '#001F29',
+      gray: colors.gray,
+      yellow: colors.yellow,
+      blue: colors.blue,
+      pink: colors.pink,
+      green: colors.green,
+      red: colors.red,
+      white: colors.white,
+      
+    },
     container: {
       center: true,
+    },
+    boxShadow: {
+      brand: 'inset 0 -0.2em 0 0 #fff, inset 0 -0.6em 0 0 rgb(212 106 73 / 60%)'
     },
     extend: {
       typography: {
@@ -24,9 +41,11 @@ module.exports = {
           css: {
             maxWidth: '100%',
             a: {
-              color: '#1D4ED8',
+              color: '#D46A49',
+              'text-decoration': 'none',
               '&:hover': {
-              color: '#1E3A8A',
+              color: 'C43D13',
+              'text-decoration': 'none',
               },
             },
             '.prose a.edit, .tag a': {

@@ -17,10 +17,10 @@
       </nav>
       {% endif %}
       {% if site.navigationStyle == 'horizontal' %}
-        <main id="main" class="dark:bg-gray-900 pt-16 md:pt-48">
+        <main id="main" class="dark:bg-gray-900 pt-20 ">
       {% else %}
-        <main id="main" class="dark:bg-gray-900 pt-20 md:pt-48 ">
-      {% endif %}     
+        <main id="main" class="dark:bg-gray-900 pt-20 ">
+      {% endif %}   
         {{ layoutContent | safe }} 
         {% include "components/footer.njk" %} 
         </main>

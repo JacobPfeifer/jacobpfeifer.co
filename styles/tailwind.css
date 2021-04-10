@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @layer base {
+
+
   
   /* Set up some default image behavior for nicer images */
   img {
@@ -10,7 +12,7 @@
   }
   /* Overrides for Tailwind Typography prose class */
   .prose a {
-    @apply dark:text-gray-400
+    @apply text-primary no-underline font-normal
   }
   .prose a:hover {
     @apply dark:text-gray-500
