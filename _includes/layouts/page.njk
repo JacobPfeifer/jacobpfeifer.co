@@ -20,12 +20,12 @@ section: page
     <div class="px-4 md:px-8 ">
         <div class="wrapper flex justify-between">
             {% if site.enableTOC and toc %} 
-            <div class="main flex flex-col pr-0 xl:pr-64 prose sm:prose lg:prose-lg xl:prose-md">
+            <div class="main flex flex-col pr-0 xl:pr-64 ">
             {% else %}
-             <div class="main  flex flex-col pr-0 prose sm:prose lg:prose-lg xl:prose-md">
+             <div class="main  flex flex-col pr-0 ">
             {% endif %}    
-                <article>
-                <h1 class="dark:text-gray-500">{{ title }}</h1>
+                <article class="prose">
+                <h1 class="font-medium">{{ title }}</h1>
                 {% if site.navigationStyle == "horizontal" %}
                     {% if site.enableEditButton == true or site.enableDatestamp == true %}
                         <div class="flex mt-4 justify-end mr-1">

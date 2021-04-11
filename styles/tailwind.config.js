@@ -27,7 +27,12 @@ module.exports = {
       green: colors.green,
       red: colors.red,
       white: colors.white,
-      
+
+    },
+    fontFamily: {
+      'sans': ['Work Sans', 'sans-serif'],
+      'serif': ['Bitter', 'serif'],
+      'mono': ['IBM Plex Mono', 'monospace']
     },
     container: {
       center: true,
@@ -48,10 +53,26 @@ module.exports = {
               'text-decoration': 'none',
               },
             },
-            '.prose a.edit, .tag a': {
-              color: '#333',
-              'text-decoration': 'none',
+            h1: {
+              'font-family': 'Bitter',
             },
+
+            h2: {
+              'font-family': 'Bitter',
+            },
+            h3: {
+              'font-family': 'Bitter',
+            },
+            h4: {
+              'font-family': 'Bitter',
+            },
+            h5: {
+              'font-family': 'Bitter',
+            },
+            h6: {
+              'font-family': 'Bitter',
+            },
+
             'ul.footer-nav': {
               '::before': {
                 display: 'none',
