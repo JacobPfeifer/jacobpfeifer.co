@@ -597,6 +597,11 @@ select{
           color-adjust: unset;
 }
 
+.prose p {
+  font-size: 1.125rem;
+  line-height: 1.75rem
+}
+
 .prose{
   color: #374151;
   max-width: 100%;
@@ -1579,14 +1584,9 @@ select{
   padding-right: 1.5rem !important;
 }
 
-.py-8{
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
-}
-
-.px-16{
-  padding-left: 4rem !important;
-  padding-right: 4rem !important;
+.px-8{
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .pt-0{
@@ -1619,6 +1619,10 @@ select{
 
 .pb-12{
   padding-bottom: 3rem !important;
+}
+
+.pt-16{
+  padding-top: 4rem !important;
 }
 
 .pt-20{
@@ -2273,14 +2277,14 @@ select{
     padding-right: 1.5rem !important;
   }
 
-  .md\:py-8{
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-  }
-
   .md\:px-8{
     padding-left: 2rem !important;
     padding-right: 2rem !important;
+  }
+
+  .md\:py-16{
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
   }
 
   .md\:w-64{
@@ -2771,6 +2775,3 @@ select{
 
 @media (min-width: 1536px){
 }
-
-
-

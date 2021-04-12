@@ -5,4 +5,9 @@
 @tailwind utilities;
 
 
+@layer base {
+    .prose p {
+        @apply text-lg
+    }
 
+}
