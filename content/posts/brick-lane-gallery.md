@@ -1,8 +1,7 @@
 ---
-title: The fifth and hopefully final example post yo yo
+title: Brick Lane Gallery
 date: 2020-10-15T12:23:39.598Z
-author: Jane Doe
-summary: Why contemplating our mortality can be a powerful catalyst for change
+summary: Researching and desinging an audio tour app for the Brick Lane Gallery in London.
 img: 
 skill:
   - research

@@ -6,8 +6,13 @@
 
 
 @layer base {
+
     .prose p {
         @apply text-lg
+    }
+
+    .prose img {
+        @apply p-0
     }
 
 }

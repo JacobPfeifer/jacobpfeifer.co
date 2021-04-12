@@ -225,9 +225,7 @@ module.exports = function(eleventyConfig) {
     .use(markdownItContainer, 'warning')
     .use(markdownItTasks)
     .use(markdownItCenterText)
-    .use(markdownLinkifyImages, {
-      imgClass: "p-4",
-    })
+    .use(markdownLinkifyImages)
     .use(markdownItAttrs, {
       includeLevel: [2,3],
       listType: "ol"

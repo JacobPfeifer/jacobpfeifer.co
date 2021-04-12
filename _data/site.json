@@ -15,7 +15,7 @@
   "enableDatestamp": false,
   "enableGithubLink": false,
   "enableContact": false,
-  "enableNetlifyCMS": true,
+  "enableNetlifyCMS": false,
   "enableComments": false,
   "enableEncryption": false,
   "enablePageNavigation": false
