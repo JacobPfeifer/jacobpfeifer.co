@@ -1441,11 +1441,6 @@ select{
   margin-bottom: 2rem !important;
 }
 
-.mx-8{
-  margin-left: 2rem !important;
-  margin-right: 2rem !important;
-}
-
 .my-16{
   margin-top: 4rem !important;
   margin-bottom: 4rem !important;
@@ -1510,6 +1505,10 @@ select{
 
 .max-w-sm{
   max-width: 24rem !important;
+}
+
+.max-w-md{
+  max-width: 28rem !important;
 }
 
 .max-w-lg{
@@ -2522,6 +2521,11 @@ select{
 
   .lg\:prose-lg > :last-child{
     margin-bottom: 0;
+  }
+
+  .lg\:mx-8{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
   }
 
   .lg\:mr-16{

@@ -1,6 +1,6 @@
 <section class="grid grid-cols-1 lg:grid-cols-2 justify-center content-center pt-8">
 	{% for post in postslist | reverse %}
-	<div class="max-w-sm rounded overflow-hidden shadow-xl my-8 mx-8  bg-white">
+	<div class="max-w-md rounded overflow-hidden shadow-xl my-8 lg:mx-8 bg-white">
 		<a href="{{ post.url | url }}">
 			<img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
 			<div class="px-6 py-4 flex flex-col">
