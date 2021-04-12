@@ -4,9 +4,9 @@
 
   {% if entry.url == page.url or entry.title == eleventyNavigation.parent or entry.title == eleventyComputed.key%}
     {% if rel == "child" %}
-      {% set highlight = 'border-gray-600 font-medium text-gray-900 focus:border-gray-700' %}
+      {% set highlight = 'font-medium text-gray-900 focus:border-gray-700' %}
     {% else %}
-      {% set highlight = 'border-gray-600 font-medium focus:border-gray-700' %}
+      {% set highlight = 'font-medium text-gray-900 focus:border-gray-700' %}
     {% endif %}
     {% set current = 'aria-current="page"' %}
   {% else %}
@@ -21,10 +21,11 @@
     px-1
     block
     focus:text-gray-900 
-    text-base bg-transparent 
+    bg-transparent 
     dark:bg-transparent
     mt-0 
     m-0
+    text-lg
     shadow-brand
     hover:font-bold  
     focus:outline-none focus:ring {{ highlight }} 
@@ -35,9 +36,9 @@
     px-4 py-3 
     rounded 
     block
-    text-base
     bg-transparent
     mt-0 
+    text-lg
     shadow-brand
     hover:text-gray-900 
     focus:text-gray-900 
@@ -66,7 +67,7 @@
   {%- endif -%}
 {%- endmacro %}
 
-<div class="md:bg-white dark:bg-gray-900 p-0 mt-2 pb-2  flex w-full justify-end">
+<div class="md:bg-white dark:bg-gray-900 p-0 flex w-full justify-end">
   <div x-data="{ open: false }" class="flex justify-start items-center flex-row ">
 
     <nav x-ref="dropdown" class="flex flex-row mt-4 justify-end flex-grow pb-4 pb-0m">

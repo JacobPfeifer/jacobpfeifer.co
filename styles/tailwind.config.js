@@ -53,26 +53,6 @@ module.exports = {
               'text-decoration': 'none',
               },
             },
-            h1: {
-              'font-family': 'Bitter',
-            },
-
-            h2: {
-              'font-family': 'Bitter',
-            },
-            h3: {
-              'font-family': 'Bitter',
-            },
-            h4: {
-              'font-family': 'Bitter',
-            },
-            h5: {
-              'font-family': 'Bitter',
-            },
-            h6: {
-              'font-family': 'Bitter',
-            },
-
             'ul.footer-nav': {
               '::before': {
                 display: 'none',

@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+section: page
+---
+
+{% if site.navigationStyle == "vertical" %}
+    {% if site.enableEditButton == true or site.enableDatestamp == true %}
+    <div class="flex mt-4 justify-end mr-1">
+        {% if site.enableDatestamp == true %}
+        <div class="inline-block w-auto text-xs text-gray-500 pt-1 pb-1 pl-3 mr-2 rounded ">Updated <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time></div>
+        {% endif %}
+        {% if site.enableEditButton == true %}
+        <div class="inline-block w-auto text-xs  text-gray-500 hover:bg-gray-200 pt-1 pr-4 pb-1 pl-3 rounded "><a target="_blank" rel="noopener" rel="noreferrer" href="{{ site.githubUrl }}/edit/{{ site.githubBranch }}/{{ page.inputPath }}">Edit</a></div>
+        {% endif %}
+    </div>
+    {% endif %}
+{% endif %}
+ 
+<div class="pb-12">
+    <div class="">
+        <article class="px-4 md:px-8 lg:px-16 mb-16 grid grid-cols-1 justify-center ">
+            <div class="mx-auto max-w-lg">
+                <h1 class="font-medium text-4xl font-serif text-center mt-16 mb-0 mx-0 p-0">{{ title }}</h1>
+                <h2 class="font-sans text-xl font-normal text-center mt-1 mb-0 mx-0 p-0">{{ subtitle }}</h2>
+                <p class="text-center mt-8 leading-6 ">I am driven by empathy and am energized by hearing from people with experiences and perspectives different from my own. I flourish when designing for equity and inclusivity.</p>
+            </div>
+        {% if site.navigationStyle == "horizontal" %}
+            {% if site.enableEditButton == true or site.enableDatestamp == true %}
+                <div class="flex mt-4 justify-end mr-1">
+                {% if site.enableDatestamp == true %}
+                    <div class="inline-block w-auto text-xs text-gray-500 pt-1 pb-1 pl-3 mr-2 rounded ">Updated <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time></div>
+                {% endif %}
+                {% if site.enableEditButton == true %}
+                    <div class="inline-block w-auto text-xs  text-gray-500 hover:bg-gray-200 pt-1 pr-4 pb-1 pl-3 rounded "><a class="text-gray-500 no-underline font-normal !important" target="_blank" href="{{ site.githubUrl }}/edit/{{ site.githubBranch }}/{{ page.inputPath }}">Edit</a></div>
+                {% endif %}
+                </div>
+            {% endif %}
+        {% endif %}
+        </article>
+        <div class="bg-gray-100 h-full px-4 md:px-8 lg:px-16 flex justify-center ">
+            {% set postslist = collections.post %}
+            {% include "components/postslist.njk" %}
+        </div>
+    </div>
+</div>
+
+
+   
+
