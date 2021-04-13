@@ -27,6 +27,7 @@ module.exports = {
       green: colors.green,
       red: colors.red,
       white: colors.white,
+      black: colors.black,
 
     },
     fontFamily: {

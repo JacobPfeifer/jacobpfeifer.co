@@ -11,7 +11,7 @@ eleventyNavigation:
 ---
 I care deeply about promoting equity and inclusivity through design. It matters to me that my work has a positive impact. I currently live in Wichita, Kansas and work in an unrelated field.
 
-Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for 5+ years, during which I a founded a non-profit to host local event, Wichita Ultimate. Ultimate has positively shaped my views on equity, teamwork, leadership.
+Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for 5+ years, during which I a founded a non-profit to host local events, Wichita Ultimate. Ultimate has positively shaped my views on equity, teamwork, leadership.
 
 Aside from design and ultimate, I’m an avid listener of indie pop and a huge fan of the US national soccer teams. 
 
