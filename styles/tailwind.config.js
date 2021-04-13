@@ -38,7 +38,8 @@ module.exports = {
       center: true,
     },
     boxShadow: {
-      brand: 'inset 0 -0.2em 0 0 #fff, inset 0 -0.6em 0 0 rgb(212 106 73 / 60%)'
+      brand: 'inset 0 -0.2em 0 0 #fff, inset 0 -0.6em 0 0 rgb(212 106 73 / 60%)',
+      card: '6px 6px 0 0 rgb(212 106 73 / 60%)'
     },
     extend: {
       typography: {

@@ -1,14 +1,14 @@
 ---
-title: This is the third example post which has a slightly longer title than the others
+title: Case Study Example
 date: 2020-01-01
-author: Jane Doe
-summary: Why contemplating our mortality can be a powerful catalyst for change
-img:
+summary: We redesigned this coffee shop website from the ground up
+img: "https://source.unsplash.com/random/800x500"
+img_alt: A random image from unsplash.com
 skill:
-  - research
-  - prototyping
+  - wireframing
+  - information arcitechture
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
 
 ```
 pre,

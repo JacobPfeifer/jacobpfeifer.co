@@ -1,19 +1,19 @@
 <section class="grid grid-cols-1 lg:grid-cols-2 justify-center content-center pt-8">
 	{% for post in postslist | reverse %}
-	<div class="max-w-md rounded overflow-hidden shadow-xl my-8 lg:mx-8 bg-white">
+	<div class="max-w-md rounded-lg overflow-hidden border border-gray-900 border-solid shadow-card my-8 lg:mx-8 bg-white">
 		<a href="{{ post.url | url }}">
-			<img class="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
-			<div class="px-6 py-4 flex flex-col">
+			<img class="w-full" src="{{ post.data.img }}" alt="{{ post.data.alt }}">
+			<div class="px-4 py-6 flex flex-col">
 				<div class="font-serif font-medium text-xl mb-2 flex-none">
 					{{ post.data.title }}
 				</div>
-				<p class="text-gray-600 text-base flex-none">
+				<p class="text-gray-800 text-base flex-none">
 					{{ post.data.summary }}
 				</p>
-				<div class="py-4 flex-none justify-self-end ">
+				<div class="pt-6 flex-none justify-self-end ">
 					{% for skill in post.data.skill %}
-					<span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 uppercase">{{ skill }}</span>
-				{% endfor %}
+					<span class="inline-block text-sm font-medium text-gray-500 mr-4 uppercase">{{ skill }}</span>
+					{% endfor %}
 				</div>
 			</div>
 		</a>	
