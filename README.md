@@ -8,11 +8,10 @@ Jacob Pfeifer's Portfolio
 
 Built with help from
 
-<p align="center">
+<p>
 <strong>https://spacebook.app</strong> <br />
 </>
-
-<p align="center">
+<p>
 🙋 💥 👩🏽‍🚀 🚀 👨‍🚀 🛰️
 </p>
 

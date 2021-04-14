@@ -48,7 +48,8 @@ module.exports = {
       none: 'none',
       brand: 'inset 0 -0.4em 0 0 #fff, inset 0 -0.8em 0 0 rgb(212 106 73 / 60%)',
       encompass: 'inset 0 0 0 0 #fff, inset 0 -2em 0 0 rgb(212 106 73 / 60%)',
-      card: '6px 6px 0 0 rgb(212 106 73 / 60%)'
+      card: '6px 6px 0 0 rgb(212 106 73 / 60%)',
+      cardHover: '8px 8px 2px 0 rgb(212 106 73 / 60%)'
     },
     extend: {
       typography: {

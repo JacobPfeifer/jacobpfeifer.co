@@ -16,11 +16,7 @@
         </div>
       </nav>
       {% endif %}
-      {% if site.navigationStyle == 'horizontal' %}
-        <main id="main" class="dark:bg-gray-900 pt-20 ">
-      {% else %}
-        <main id="main" class="dark:bg-gray-900 pt-20 ">
-      {% endif %}   
+        <main id="main" class="pt-20 ">
         {{ layoutContent | safe }} 
         {% include "components/footer.njk" %} 
         </main>

@@ -1,7 +1,0 @@
-<section>
-	{% for post in postslist | reverse %}
-		<a href="{{ post.url | url }}">
-			{{ post.data.title }}
-		</a>
-	{% endfor %}
-</section>
