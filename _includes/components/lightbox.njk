@@ -20,11 +20,11 @@
 </div>
 
 <div x-data="{}" class="">
-    <div class="flex justify-center">
-      <div class="w-1/6 ">
+    <div class="flex justify-start">
+      <div class="max-w-lg">
         <div class="bg-gray-400">
-          <a @click="$dispatch('img-modal', {  imgModalSrc: 'https://picsum.photos/640/480', imgModalDesc: 'Random Image One Description' })" class="cursor-pointer">
-            <img alt="Placeholder" class="object-fit w-full" src="https://picsum.photos/640/480">
+          <a @click="$dispatch('img-modal', {  imgModalSrc: '{{ modal_img }}', imgModalDesc: '{{ modal_alt }}' })" class="cursor-pointer">
+            <img alt="{{ modal_alt }}" class="object-fit w-full" src="{{ modal_img }}">
           </a>
         </div>
       </div>

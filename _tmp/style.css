@@ -1532,10 +1532,6 @@ select{
   margin-top: 1rem !important;
 }
 
-.mr-4{
-  margin-right: 1rem !important;
-}
-
 .mb-4{
   margin-bottom: 1rem !important;
 }
@@ -1546,6 +1542,10 @@ select{
 
 .mt-8{
   margin-top: 2rem !important;
+}
+
+.mb-8{
+  margin-bottom: 2rem !important;
 }
 
 .mt-12{
