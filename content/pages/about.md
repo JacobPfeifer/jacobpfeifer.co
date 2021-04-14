@@ -17,4 +17,4 @@ Aside from design and ultimate, I’m an avid listener of indie pop and a huge f
 
 Follow me on Twitter [@jacobpfeiferco](http://twitter.com/jacobpfeiferco) where I share clips from design podcasts.
 
-Send me an email himself@jacobpfeifer.co.
+Send me an email himself@jacobpfeifer.co
