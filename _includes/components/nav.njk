@@ -10,15 +10,15 @@
     {% endif %}
     {% set current = 'aria-current="page"' %}
   {% else %}
-    {% set highlight = 'border-transparent text-gray-900 hover:text-gray-700 hover:border-gray-500 ' %}
+    {% set highlight = 'border-transparent text-gray-900 hover:border-gray-500 ' %}
     {% set current = '' %}
   {% endif %}
  
 {%- if not entry.children.length  -%}
-  {% if rel == "child" %}
    <a class="w-max 
     mx-4 my-2
-    px-1
+    px-2
+    py-1
     block
     focus:text-gray-900 
     bg-transparent 
@@ -27,26 +27,15 @@
     m-0
     text-lg
     shadow-brand
-    hover:font-bold  
+    hover:shadow-encompass
+    transform
+    transition
+    duration-200
+    ease-in-out
     focus:outline-none focus:ring {{ highlight }} 
     box" 
     href="{{ entry.url | url }}">{{ entry.title }}</a>
-  {% else %}
-   <a class="w-max
-    px-4 py-3 
-    rounded 
-    block
-    bg-transparent
-    mt-0 
-    text-lg
-    shadow-brand
-    hover:text-gray-900 
-    focus:text-gray-900 
-    focus:outline-none 
-    focus:ring {{ highlight }}" 
-    href="{{ entry.url | url }}">{{ entry.title }}</a>
-  {% endif %}
- 
+
   {%- else -%}
    
     {%- if entry.children.length -%}

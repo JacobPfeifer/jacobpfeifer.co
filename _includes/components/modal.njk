@@ -1,5 +1,5 @@
 <main
-      class="mx-auto max-w-4xl bg-gray-200 h-screen"
+      class="flex justify-center"
       x-data="{ 'isDialogOpen': false }"
       @keydown.escape="isDialogOpen = false"
 >
@@ -9,7 +9,7 @@
 
     <!-- overlay -->
     <div
-        class="overflow-hidden fixed"
+        class="overflow-auto fixed"
         style="background-color: rgba(0,0,0,0.5)"
         x-show="isDialogOpen"
         :class="{ ' inset-0 z-10 flex items-start justify-center': isDialogOpen }"
