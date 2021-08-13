@@ -9,11 +9,11 @@ eleventyNavigation:
   order: 1
   title: ABOUT
 ---
-I care deeply about promoting equity and inclusivity through design. It matters to me that my work has a positive impact. I currently live in Wichita, Kansas and work in an unrelated field.
+I recently moved to Austin Texas to pursue personal and professional growth. 
 
-Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for 5+ years, during which I a founded a non-profit to host local events, Wichita Ultimate. Ultimate has positively shaped my views on equity, teamwork, leadership.
+Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for 5+ years. Ultimate has positively shaped my views on equity, teamwork, leadership.
 
-Aside from design and ultimate, I’m an avid listener of indie pop and a huge fan of the US national soccer teams. 
+Aside from design and ultimate, I’m an avid listener of podcasts and love discovering new music and I'm a huge fan of the US men's and women's national soccer teams.
 
 Follow me on Twitter [@jacobpfeiferco](http://twitter.com/jacobpfeiferco) where I share clips from design podcasts.
 
