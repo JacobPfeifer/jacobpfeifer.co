@@ -56,6 +56,10 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '100%',
+            img: {
+              margin: '0',
+              padding: '0'
+            },
             a: {
               color: '#D46A49',
               'text-decoration': 'none',

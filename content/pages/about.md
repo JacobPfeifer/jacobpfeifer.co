@@ -9,9 +9,9 @@ eleventyNavigation:
   order: 1
   title: ABOUT
 ---
-I recently moved to Austin Texas to pursue personal and professional growth. 
+I recently moved to Austin to pursue opportunities for personal and professional growth. 
 
-Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for 5+ years. Ultimate has positively shaped my views on equity, teamwork, leadership.
+Community and sports are important to me. I've been an active ultimate frisbee player and community organizer for over five years. Ultimate has positively shaped my views on equity, teamwork, leadership.
 
 Aside from design and ultimate, I’m an avid listener of podcasts and love discovering new music and I'm a huge fan of the US men's and women's national soccer teams.
 
