@@ -1,11 +1,14 @@
 <main
-      class="flex justify-center"
-      x-data="{ 'isDialogOpen': false }"
-      @keydown.escape="isDialogOpen = false"
+  class="flex justify-center"
+  x-data="{ 'isDialogOpen': false }"
+  @keydown.escape="isDialogOpen = false"
 >
   <section class="flex flex-wrap p-4">
-
-    <button type="button" class="border p-2 bg-white hover:border-gray-500" @click="isDialogOpen = true">Open modal</button>
+    <button
+      type="button"
+      class="border p-2 bg-white hover:border-gray-500"
+      @click="isDialogOpen = true">Open modal
+    </button>
 
     <!-- overlay -->
     <div
