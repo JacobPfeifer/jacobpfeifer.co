@@ -1,29 +1,37 @@
 <section class="grid grid-cols-1 lg:grid-cols-2 justify-center content-center pt-8">
 	{% for post in postslist | reverse %}
-	<div class="max-w-md flex flex-col rounded-lg overflow-hidden border border-gray-900 border-solid shadow-card my-8 lg:mx-8 bg-white transform translate-y-2 hover:translate-y-0 duration-200 ease-in-out">
-		<div class="flex-none">
-			<a href="{{ post.url | url }}" class="block">
-				<img class="w-full" src="{{ post.data.img }}" alt="{{ post.data.alt }}">
-			</a>
-		</div>
+	<article class="card group cursor-pointer shadow-2xl border-box m-8 max-w-md flex flex-col rounded-lg overflow-hidden border border-gray-900 border-solid shadow-card my-8 lg:mx-8 bg-white transform translate-y-2 hover:translate-y-0 duration-200 ease-in-out" 
+	x-data="{
+		handleClick() {
+			const noTextSelected = !window.getSelection().toString();
+			if (noTextSelected) {
+				this.$refs.link.click();
+			}
+		}
+	}"
+	@click="handleClick"
+	>
+		<img class="w-full flex-none" src="{{ post.data.img }}" alt="{{ post.data.alt }}">
 		<div class="flex flex-1 flex-col justify-between">
 			<div class="px-4 pt-6">
-				<h3 class="font-serif font-medium text-xl mb-2">
-					<a href="{{ post.url | url }}">{{ post.data.title }}</a>
-				</h3>
-				<p class="text-gray-800 text-base pb-2">
-					{{ post.data.summary }} 
-				</p>
-				<p class="text-primary font-medium whitespace-nowrap">
-					<a href="{{ post.url | url }}">Visit Case Study</a>
+				<a
+				@click.prevent
+				x-ref="link"
+				class="group-hover:text-primary group-hover:underline font-serif font-medium text-black text-xl"
+				href="{{ post.url | url }}"
+				>
+					<h3 class="pb-4">{{ post.data.title }}</h3>
+				</a>
+				<p class="text-gray-800 text-base pb-2">{{ post.data.summary }} 
 				</p>
 			</div>
 			<div class="py-6 px-4">
 				{% for skill in post.data.skill %}
-				<span class="inline-block text-sm font-medium text-gray-500 mr-4 uppercase">{{ skill }}</span>
+					<span class="inline-block text-sm font-medium text-gray-500 mr-4 uppercase">{{ skill }}</span>
 				{% endfor %}
 			</div>
 		</div>
-	</div>
+	</article>
 	{% endfor %}
 </section>
+

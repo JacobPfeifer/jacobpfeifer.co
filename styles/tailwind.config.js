@@ -3,13 +3,20 @@ const { colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   important: true,
+  mode: 'jit',
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
   purge: {
     enabled: true,
-    content: ["_site/**/*.html"],
+    content: [
+      "_site/**/*.html",
+      "./_includes/components/**/*.njk",
+      "./_includes/layouts/**/*.njk",
+      "./content/pages/**/*.md",
+      "./content/posts/**/*.njk",
+    ],
     options: {
       safelist: [],
     },
