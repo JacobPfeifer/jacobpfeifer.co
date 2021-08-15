@@ -59,6 +59,15 @@ module.exports = {
       cardHover: '8px 8px 2px 0 rgb(212 106 73 / 60%)'
     },
     extend: {
+      keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          "100%": { transform: 'rotate(90deg)' }
+        }
+      },
+      animation: {
+        'spin-once': 'spin .2s ease-in-out 1'
+      },
       typography: {
         DEFAULT: {
           css: {
