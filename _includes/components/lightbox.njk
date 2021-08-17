@@ -14,6 +14,7 @@
         <button
           @click="imgModal = ''"
           class="flex self-end p-4 outline-none focus:outline-none hover:"
+          aria-label="Close"
         >
           <svg 
             class="fill-current text-white"
@@ -26,7 +27,7 @@
           </svg>
         </button>
         <img
-          :alt="imgModalDesc" 
+          :alt="" 
           :src="imgModalSrc"
           class="object-contain px-4 m-0 h-auto"
         >
