@@ -77,11 +77,13 @@ module.exports = {
               padding: '0'
             },
             a: {
-              color: '#D46A49',
-              'text-decoration': 'none',
+              color: '#D46A49','text-decoration': 'none',
               '&:hover': {
-              color: 'C43D13',
-              'text-decoration': 'none',
+                color: '#D46A49',
+                'text-decoration': 'underline',
+                },
+              '&:focus': {
+                'box-shadow': '0 0 0 2px #001F29'
               },
             },
             'ul.footer-nav': {

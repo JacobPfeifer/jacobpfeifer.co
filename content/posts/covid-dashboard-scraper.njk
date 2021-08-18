@@ -1,0 +1,36 @@
+---
+title: Covid Dashboard Scraper
+date: 2021-08-17
+summary: Writing a python script to get data from the Sedgwick County COVID-19 dashboard.  
+img: /content/images/sg-co-script.png
+alt:  
+skill: [python]
+---
+{% set modal_img = "/content/images/sg-co-script.png" %}
+{% set modal_alt = "" %}
+{% include "components/lightbox.njk" %} 
+<p>I started tracking the daily covid updates manually. I was just entering everything into a google spreadsheet. At the time, Sedgwick County did not have any data history, they were just updating each day with new totals. I wanted to be able to see each day in comparison with the last to better understand our trajectory and how I should shape my own behavior based on changing risk.</p>
+<p>After many weeks of downloading the daily PDFs and manually entering the data to my spreadsheet, 2 things happened. Sedgwick county released a new dashboard with historic numbers and I began working on a web scraper to automate the daily updates.</p>
+<p>I had very little experience with any coding languages, and after a bit of research decided python would be interesting to dive in to.</p>
+<p>After some digging in the web inspector, I discovered some bits of the data were accessible via an API request and were hosted in JSON files. Getting those bits into google sheets was fairly easy, as there is a google sheets plugin that can spit JSON directly into google sheets with a few instructions.</p>
+{% set modal_img = "/content/images/dev-tools.png" %}
+{% set modal_alt = "" %}
+{% include "components/lightbox.njk" %} 
+
+{% set modal_img = "/content/images/data-public-query.png" %}
+{% set modal_alt = "" %}
+{% include "components/lightbox.njk" %} 
+
+{% set modal_img = "/content/images/arcgis-homepage.png" %}
+{% set modal_alt = "" %}
+{% include "components/lightbox.njk" %} 
+
+<p>Unfortuantely, a few of the numbers were hidden in a PowerBI chart that was inserted into the page via an iFrame. I decided to scrape this data using Scrappy-Selenium. It creates a headless browser that can interact with a webpage. After many days of trial and error, I was finally able to get the scraper to adjust a sliding timeline bar to show the full history, view each column in this chart, read the aria-label for each day, and format the plain text into an array that could be formatted in a similar fashion to the data I could access via the API request.</p>
+
+<div style="width:100%;height:0px;position:relative;padding-bottom:69.231%;"><iframe src="https://streamable.com/e/hs0zy8?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+
+<p>Then I uploaded the JSON to jsonbin.io, and had the google sheet import this data as well.
+<p>I didn't want to have to run this script manually each day, so I uploaded it to a free heroku server that ran each day at 5pm.</p>
+<p>Finally, I had the data in a google sheet, which I could import into Tableau, a powerful data visualization tool.</p>
+<p>In Sedgwick county, we had a second spike in cases and hospitalizations in July. Many people were skeptical that there was more people with covid, saying that SG county was just doing more testing now and we were missing fewer cases. This was untrue, and I was excited to show it visually with the data I had gathered. We had begun ramping up our testing in Late May and June as cases continued to go down.</p>
+ 
