@@ -24,7 +24,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     colors: {
-      primary: '#D46A49',
+      primary: '#C6522F',
       secondary: '#A2B9B6',
       altblack: '#001F29',
       gray: colors.gray,
@@ -53,10 +53,10 @@ module.exports = {
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
-      brand: 'inset 0 -0.4em 0 0 #fff, inset 0 -0.8em 0 0 rgb(212 106 73 / 60%)',
-      encompass: 'inset 0 0 0 0 #fff, inset 0 -2em 0 0 rgb(212 106 73 / 60%)',
-      card: '6px 6px 0 0 rgb(212 106 73 / 60%)',
-      cardHover: '8px 8px 2px 0 rgb(212 106 73 / 60%)'
+      brand: 'inset 0 -0.4em 0 0 #fff, inset 0 -0.8em 0 0 rgba(212, 106, 73, .75)',
+      encompass: 'inset 0 0 0 0 #fff, inset 0 -2em 0 0 rgba(212, 106,73, .75)',
+      card: '6px 6px 0 0 rgba(212, 106, 73, .75)',
+      cardHover: '8px 8px 2px 0 rgba(212, 106, 73, .75)',
     },
     extend: {
       keyframes: {
@@ -77,9 +77,9 @@ module.exports = {
               padding: '0'
             },
             a: {
-              color: '#D46A49','text-decoration': 'none',
+              color: '#C6522F','text-decoration': 'none',
               '&:hover': {
-                color: '#D46A49',
+                color: '#C6522F',
                 'text-decoration': 'underline',
                 },
               '&:focus': {

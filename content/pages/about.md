@@ -3,7 +3,7 @@ title: Hi, I'm Jacob!
 date: Last Modified 
 permalink: /about/index.html
 layout: layouts/about.njk
-headshot: "/content/images/hedshot1.png"
+headshot: "/content/images/headshot.png"
 eleventyNavigation:
   key: About
   order: 1
