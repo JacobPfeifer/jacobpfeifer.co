@@ -7,30 +7,35 @@ alt: Python Script used to harvest data from the Sedgwick County COVID Dashboard
 skill: [python]
 ---
 {% set modal_img = "/content/images/sg-co-script.png" %}
-{% set modal_alt = "Python Script used to harvest data from the Sedgwick County COVID Dashboard" %}
+{% set modal_alt = "Python script used to harvest data from the Sedgwick County COVID-19 dashboard" %}
 {% include "components/lightbox.njk" %} 
-<p>Early in the pandemic, Sedgwick County was reporting very basic information by releasing a daily PDF. Only the totals were updated. In order to see how many new cases and deathers were reported that day, you needed to compare with the previous day's PDF. I wanted to better understand my county's trajectory and therefore how I should shape my own behavior. To start out, I entered the data from the daily PDFs into a Google Sheet and with a few simple formulas I was able to see the delta each day.</p>
+<p>Early in the pandemic, Sedgwick County was reporting basic stats by releasing a daily PDF. The total number of cases and deaths were reported, but not much else. In order to see how many new cases and deaths were reported each day, you needed to compare it with the previous day's PDF. I wanted to better understand my county's trajectory and therefore how I should shape behavior, so I entered the data from the daily PDFs into a Google Sheet. With a few simple formulas I was able to see the delta each day.</p>
 
-<p>Thankfully, after a few weeks Sedgwick County released a <a href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard</a> with more robust data and a few charts. It was easier to see how many cases, hospitalizations, and deaths were reported each day but I wanted to visualize the longer term trends. In order to do that, I needed a clean data set. I decided to continue updating my Google Sheet but wanted to find a more efficent way to keep it up to date.</p>
+<p>Thankfully, after a few weeks Sedgwick County released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard</a> with more robust data and a few charts. It was easier to see how many cases, hospitalizations, and deaths were reported each day but I wanted to visualize the longer term trends. In order to do that, I needed a clean data set. I decided to continue updating my Google Sheet but wanted to find a more efficent way to keep it current.</p>
 
-<p>Before writing my own script I wanted to see what was available to me with minimal effort. Looking through the web inspector I found most of the data was coming from a <a href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that the county provided. Unfortunately, there were two things shown on the dashboard that were not avliable via an API call. More on that soon. </p>
+<p>Before writing my own script I wanted to see what was available to me with minimal effort. Looking through the dev tools I found most of the data was coming from a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that the county provided. Unfortunately, there were two things shown on the dashboard that were not avliable via this directory. More on that soon. </p>
 
 {% set modal_img = "/content/images/dev-tools.png" %}
 {% set modal_alt = "Using the Chrome Dev Tools to find relevant URLs." %}
 {% include "components/lightbox.njk" %} 
 
-<p><a href="https://www.tableau.com">Tableau</a>), the data visualization tool I wanted to use, accepts all kinds of data types but only automatically updates each day with Google Sheets as the database. To leverage that functionality, it made sense for me to continue compiling my data there. With a a <a href="https://github.com/bradjasper/ImportJSON">cool package</a> doing the heavy legwork, I was able to import the JSON directly.</p>
+<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I wanted to use, accepts all kinds of databases but only <em>automatically</em> updates with Google Sheets. To leverage that functionality, it made sense for me to continue compiling my data there. With an <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> doing the legwork, I was able to import the files from the county directory.</p>
 
-<p>Now I just needed to figure out how to get the 2 things I was missing: how many positive and negative tests were reported each day. It seemed the only way to get this would be to write a web scraper. I did not have any coding experience, but after doing some research, I decided to use <a href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a>" which uses Python. It seemed easy to learn and I knew with a big community there would be plenty of tools and tutorials. Selenium runs a browser instance, allowing it interact with elements and reaveal data that is not visible.</p>
+<p>Now I just needed to figure out how to get the two things I was missing: how many positive and negative tests were reported each day. It seemed the only way to get this would be to write a web scraper. I did not have any coding experience, but after doing some research, I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. It seemed easy to learn and I knew with a big community there would be plenty of tutorials. Selenium runs a browser instance, allowing it interact with elements and reaveal data that is not visible.</p>
 
-
-
-</p>After many days of trial and error, I was finally able to get the scraper to adjust a sliding timeline bar to show the full history, view each column in this chart, read the aria-label for each day, and format the plain text into an array that could be formatted in a similar fashion to the data I could access via the API request.</p>
+<p>10 tutorials followed and 10,000 errors pasted into Google later, I was able write something that worked! The script does the following:
+</p>
+<ol>
+    <li>Launches a broswer window at the dashboard URL</li>
+    <li>Expands the range of the chart to include all available data</li>
+    <li>Shows the chart data in a table view</li>
+    <li>Harvests the Dates, Positive Tests, and Negative Tests</li>
+    <li>Formats that data into JSON</li>
+    <li>Posts that data to JSONbin</li>
+</ol>
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:69.231%;"><iframe src="https://streamable.com/e/hs0zy8?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
-<p>Then I uploaded the JSON to jsonbin.io, and had the google sheet import this data as well.
-<p>I didn't want to have to run this script manually each day, so I uploaded it to a free heroku server that ran each day at 5pm.</p>
-<p>Finally, I had the data in a google sheet, which I could import into Tableau, a powerful data visualization tool.</p>
-<p>In Sedgwick county, we had a second spike in cases and hospitalizations in July. Many people were skeptical that there was more people with covid, saying that SG county was just doing more testing now and we were missing fewer cases. This was untrue, and I was excited to show it visually with the data I had gathered. We had begun ramping up our testing in Late May and June as cases continued to go down.</p>
+<p>I then uploaded this script to a Heroku server and asked it to run once daily, fully automating this process.</p>
  
+<p>Check out my other project <a href="#">COVID-19 Data visualization</a> to see what I did with this data.</p>
