@@ -3,29 +3,29 @@ title: COVID-19 Data Scraper
 date: 2021-08-17
 summary: A script to harvest data from the Sedgwick County COVID-19 dashboard.
 img: /content/images/sg-co-script.png
-alt:  
+alt: Python Script used to harvest data from the Sedgwick County COVID Dashboard
 skill: [python]
 ---
 {% set modal_img = "/content/images/sg-co-script.png" %}
-{% set modal_alt = "" %}
+{% set modal_alt = "Python Script used to harvest data from the Sedgwick County COVID Dashboard" %}
 {% include "components/lightbox.njk" %} 
-<p>I started tracking the daily covid updates manually. I was just entering everything into a google spreadsheet. At the time, Sedgwick County did not have any data history, they were just updating each day with new totals. I wanted to be able to see each day in comparison with the last to better understand our trajectory and how I should shape my own behavior based on changing risk.</p>
-<p>After many weeks of downloading the daily PDFs and manually entering the data to my spreadsheet, 2 things happened. Sedgwick county released a new dashboard with historic numbers and I began working on a web scraper to automate the daily updates.</p>
-<p>I had very little experience with any coding languages, and after a bit of research decided python would be interesting to dive in to.</p>
-<p>After some digging in the web inspector, I discovered some bits of the data were accessible via an API request and were hosted in JSON files. Getting those bits into google sheets was fairly easy, as there is a google sheets plugin that can spit JSON directly into google sheets with a few instructions.</p>
+<p>Early in the pandemic, Sedgwick County was reporting very basic information by releasing a daily PDF. Only the totals were updated. In order to see how many new cases and deathers were reported that day, you needed to compare with the previous day's PDF. I wanted to better understand my county's trajectory and therefore how I should shape my own behavior. To start out, I entered the data from the daily PDFs into a Google Sheet and with a few simple formulas I was able to see the delta each day.</p>
+
+<p>Thankfully, after a few weeks Sedgwick County released a <a href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard</a> with more robust data and a few charts. It was easier to see how many cases, hospitalizations, and deaths were reported each day but I wanted to visualize the longer term trends. In order to do that, I needed a clean data set. I decided to continue updating my Google Sheet but wanted to find a more efficent way to keep it up to date.</p>
+
+<p>Before writing my own script I wanted to see what was available to me with minimal effort. Looking through the web inspector I found most of the data was coming from a <a href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that the county provided. Unfortunately, there were two things shown on the dashboard that were not avliable via an API call. More on that soon. </p>
+
 {% set modal_img = "/content/images/dev-tools.png" %}
-{% set modal_alt = "" %}
+{% set modal_alt = "Using the Chrome Dev Tools to find relevant URLs." %}
 {% include "components/lightbox.njk" %} 
 
-{% set modal_img = "/content/images/data-public-query.png" %}
-{% set modal_alt = "" %}
-{% include "components/lightbox.njk" %} 
+<p><a href="https://www.tableau.com">Tableau</a>), the data visualization tool I wanted to use, accepts all kinds of data types but only automatically updates each day with Google Sheets as the database. To leverage that functionality, it made sense for me to continue compiling my data there. With a a <a href="https://github.com/bradjasper/ImportJSON">cool package</a> doing the heavy legwork, I was able to import the JSON directly.</p>
 
-{% set modal_img = "/content/images/arcgis-homepage.png" %}
-{% set modal_alt = "" %}
-{% include "components/lightbox.njk" %} 
+<p>Now I just needed to figure out how to get the 2 things I was missing: how many positive and negative tests were reported each day. It seemed the only way to get this would be to write a web scraper. I did not have any coding experience, but after doing some research, I decided to use <a href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a>" which uses Python. It seemed easy to learn and I knew with a big community there would be plenty of tools and tutorials. Selenium runs a browser instance, allowing it interact with elements and reaveal data that is not visible.</p>
 
-<p>Unfortuantely, a few of the numbers were hidden in a PowerBI chart that was inserted into the page via an iFrame. I decided to scrape this data using Scrappy-Selenium. It creates a headless browser that can interact with a webpage. After many days of trial and error, I was finally able to get the scraper to adjust a sliding timeline bar to show the full history, view each column in this chart, read the aria-label for each day, and format the plain text into an array that could be formatted in a similar fashion to the data I could access via the API request.</p>
+
+
+</p>After many days of trial and error, I was finally able to get the scraper to adjust a sliding timeline bar to show the full history, view each column in this chart, read the aria-label for each day, and format the plain text into an array that could be formatted in a similar fashion to the data I could access via the API request.</p>
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:69.231%;"><iframe src="https://streamable.com/e/hs0zy8?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
