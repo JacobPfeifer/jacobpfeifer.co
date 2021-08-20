@@ -2190,6 +2190,10 @@ select{
     .sm\:m-8{
 		margin: 2rem !important;
 	}
+    .sm\:mx-0{
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
     .sm\:text-xs{
 		font-size: 0.75rem !important;
 		line-height: 1rem !important;
