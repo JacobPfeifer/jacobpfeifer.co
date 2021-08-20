@@ -19,7 +19,9 @@ module.exports = function(eleventyConfig) {
   });
 
   // Syntax Highlighting
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: true,
+  });
 
   // Responsive image shortcode
   eleventyConfig.addLiquidShortcode("image", async function(src, alt, sizes = "100vw") {

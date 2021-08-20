@@ -1279,6 +1279,9 @@ select{
 .max-h-full{
 	max-height: 100% !important;
 }
+.w-screen{
+	width: 100vw !important;
+}
 .w-full{
 	width: 100% !important;
 }
