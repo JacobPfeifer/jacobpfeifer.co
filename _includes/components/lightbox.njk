@@ -45,7 +45,7 @@
   class=""
 >
   <div class="flex justify-start">
-      <div class="bg-black bg-opacity-80 rounded my-4">
+      <div class="my-4">
         <a 
           @click="$dispatch('img-modal', {  imgModalSrc: '{{ modal_img }}', imgModalDesc: '{{ modal_alt }}' })" 
           class="cursor-pointer"
@@ -56,7 +56,8 @@
           src="{{ modal_img }}"
           >
         </a>
-        <p class="m-0 p-2 text-sm text-gray-300"> {{ modal_alt }} </p>
+        <p class="text-sm text-gray-500"> {{ modal_alt }} </p>
+        <hr class="m-0">
       </div>
     </div>
 </div>
