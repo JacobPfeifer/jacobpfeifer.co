@@ -16,7 +16,7 @@ skill: [programming,python]
 <p>Before writing a script I wanted to see what was available to me with minimal effort. Looking through the dev tools I found most of the data was coming from a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that the county provided. Unfortunately, there were two things on the dashboard that were not available via this directory. More on that soon.</p>
 
 {% set modal_img = "/content/images/dev-tools.png" %}
-{% set modal_alt = "Using the Chrome Dev Tools to find relevant URLs." %}
+{% set modal_alt = "Using the Chrome Dev Tools to find the URLs the data is coming from" %}
 {% include "components/lightbox.njk" %} 
 
 <p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I wanted to use, imports all kinds of databases but only automatically refreshes with Google Sheets. To leverage that functionality, it made sense for me to continue compiling my data there. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory.</p>
@@ -35,7 +35,7 @@ skill: [programming,python]
 </ol>
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:59.900%;"><iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
-<p class="text-sm text-gray-500">Video of the script in action</p>
+<p class="text-sm text-gray-500">Script in action</p>
 <hr class="mt-0 mb-4">
 <p>Check out my other project <a href="#">COVID-19 Data visualization</a> to see what I did with this data.</p>
 
