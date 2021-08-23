@@ -1,32 +1,34 @@
 ---
-title: COVID-19 Data Scraper
+title: COVID-19 Data Project
 date: 2021-08-17
-summary: A script to harvest data from the Sedgwick County COVID-19 dashboard.
+summary: Scraping and visualizing the COVID-19 pandemic in Sedgwick County, KS.
 img: /content/images/sg-co-script.png
 alt: Python Script used to harvest data from the Sedgwick County COVID Dashboard
-skill: [programming,python]
-role: personal project
-timeline: spring 2020
+skill: [Programming,Data Viz]
+tool: [Python,Tableau]
+role: Personal Project
+timeline: March - August 2020
 ---
-{% set modal_img = "/content/images/sg-co-script.png" %}
-{% set modal_alt = "" %}
-{% include "components/lightbox.njk" %} 
-
 <h2 class="font-serif">Background</h2>
 
-<p>Early in the pandemic, Sedgwick County was reporting basic stats by releasing a daily PDF. The total number of cases and deaths were reported, but not much else. To see how many new cases and deaths were reported each day, you needed to compare it with the previous day's PDF. I wanted to better understand my county's trajectory and therefore how I should shape behavior, so I entered the data from the daily PDFs into a Google Sheet. With a few simple formulas, I was able to see the delta each day.</p>
+<p>Early in the pandemic, Sedgwick County was reporting the total number of cases and deaths via a daily PDF. To see how many new cases and deaths were reported each day, you needed to compare it with the previous day's PDF. I wanted to better understand my county's trajectory and how I should shape behavior in response. Intially, I made a spreadsheet and manually entered the data from the daily PDFs. This allowed me to see the delta each day. Sedgwick County eventually released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard.</a> The dashboard made it easier to see how many cases, hospitalizations, and deaths were reported each day but I thought there was an opportunity to tell a more complete story.</p>
 
-<p>Sedgwick County eventually released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard</a> with more robust data and a few charts. It was easier to see how many cases, hospitalizations, and deaths were reported each day but I wanted to visualize the longer-term trends. To do that, I needed a clean data set. I decided to continue updating my Google Sheet but wanted to find a more efficient way to keep it current.</p>
+<p>Goals:
+    <ul>
+        <li>Create better looking and more informative charts for myself, friends and family.</li>>
+        <li>Showcase metics not on display (Case Fatality Rate, Positivity Rate, 7-Day-Moving Average)</li>
+    </ul>
+</p>
 
 <h2 class="font-serif">Solution</h2>
 
-<p>Before writing a script I wanted to see what was available to me with minimal effort. Poking through the dev tools I found a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that hosted the dashboard data. I was able to get almost everything from this directory via an API call, but some data was missing. More on that soon.</p>
+<p>First, I needed a more efficent way to keep my database current. Poking through the dev tools I found a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that hosted the dashboard data. I was able to get almost everything from this directory via an API call, but some data was missing. More on that soon.</p>
 
 {% set modal_img = "/content/images/dev-tools.png" %}
 {% set modal_alt = "Using the Chrome Dev Tools to find the URLs the data is coming from" %}
 {% include "components/lightbox.njk" %} 
 
-<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I wanted to use, imports all kinds of databases but only automatically refreshes with Google Sheets. To leverage that functionality, it made sense for me to continue compiling my data there. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory.</p>
+<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I used, automatically updates charts if Google Sheets is used as the database. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory.</p>
 
 <p>Then I needed to figure out how to get the two attributes I was missing: how many positive and negative tests were reported each day. The only way to get this data was writing a custom web scraper. After doing some research, I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance, allowing it to interact with elements and reveal data that is not visible.</p>
 

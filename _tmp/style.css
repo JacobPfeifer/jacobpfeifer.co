@@ -1325,9 +1325,6 @@ select{
 .w-1\/6{
 	width: 16.666667% !important;
 }
-.w-screen{
-	width: 100vw !important;
-}
 .max-w-lg{
 	max-width: 32rem !important;
 }
@@ -1394,6 +1391,13 @@ select{
 }
 .justify-between{
 	justify-content: space-between !important;
+}
+.gap-y-8{
+	row-gap: 2rem !important;
+}
+.gap-x-0{
+	-moz-column-gap: 0px !important;
+	     column-gap: 0px !important;
 }
 .self-end{
 	align-self: flex-end !important;
@@ -1557,6 +1561,10 @@ select{
 	padding-left: 0.75rem !important;
 	padding-right: 0.75rem !important;
 }
+.py-8{
+	padding-top: 2rem !important;
+	padding-bottom: 2rem !important;
+}
 .pt-20{
 	padding-top: 5rem !important;
 }
@@ -1661,6 +1669,9 @@ select{
 }
 .tracking-wide{
 	letter-spacing: 0.025em !important;
+}
+.tracking-wider{
+	letter-spacing: 0.05em !important;
 }
 .text-gray-900{
 	--tw-text-opacity: 1 !important;
@@ -2187,6 +2198,9 @@ select{
 		margin-left: 0px !important;
 		margin-right: 0px !important;
 	}
+    .sm\:grid-cols-2{
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
 }
 @media (min-width: 768px){
 
@@ -2282,6 +2296,11 @@ select{
 		padding-left: 1.5rem !important;
 		padding-right: 1.5rem !important;
 	}
+
+	.md\:px-12{
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+	}
 }
 @media (min-width: 1024px){
 
@@ -2313,6 +2332,11 @@ select{
 	.xl\:px-12{
 		padding-left: 3rem !important;
 		padding-right: 3rem !important;
+	}
+
+	.xl\:px-20{
+		padding-left: 5rem !important;
+		padding-right: 5rem !important;
 	}
 }
 
