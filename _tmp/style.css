@@ -1260,9 +1260,6 @@ select{
 .mb-6{
 	margin-bottom: 1.5rem !important;
 }
-.mb-8{
-	margin-bottom: 2rem !important;
-}
 .mr-3{
 	margin-right: 0.75rem !important;
 }
@@ -1327,6 +1324,9 @@ select{
 }
 .w-1\/6{
 	width: 16.666667% !important;
+}
+.w-screen{
+	width: 100vw !important;
 }
 .max-w-lg{
 	max-width: 32rem !important;
@@ -1659,9 +1659,6 @@ select{
 .leading-6{
 	line-height: 1.5rem !important;
 }
-.leading-4{
-	line-height: 1rem !important;
-}
 .tracking-wide{
 	letter-spacing: 0.025em !important;
 }
@@ -1681,25 +1678,21 @@ select{
 	--tw-text-opacity: 1 !important;
 	color: rgba(198, 82, 47, var(--tw-text-opacity)) !important;
 }
-.text-gray-500{
+.text-gray-600{
 	--tw-text-opacity: 1 !important;
-	color: rgba(107, 114, 128, var(--tw-text-opacity)) !important;
+	color: rgba(75, 85, 99, var(--tw-text-opacity)) !important;
 }
 .text-white{
 	--tw-text-opacity: 1 !important;
 	color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
 }
-.text-gray-600{
+.text-gray-500{
 	--tw-text-opacity: 1 !important;
-	color: rgba(75, 85, 99, var(--tw-text-opacity)) !important;
+	color: rgba(107, 114, 128, var(--tw-text-opacity)) !important;
 }
 .text-gray-300{
 	--tw-text-opacity: 1 !important;
 	color: rgba(209, 213, 219, var(--tw-text-opacity)) !important;
-}
-.text-altblack{
-	--tw-text-opacity: 1 !important;
-	color: rgba(0, 31, 41, var(--tw-text-opacity)) !important;
 }
 .text-gray-400{
 	--tw-text-opacity: 1 !important;
