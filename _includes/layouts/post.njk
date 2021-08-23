@@ -4,9 +4,22 @@ section: post
 ---
 <div class="flex w-full justify-center">
     <div class="mt-16 px-4 md:px-8 lg:px-16 w-full max-w-5xl">
-        <article class="prose sm:prose lg:prose-lg xl:prose-xl">
-          <h1 class="dark:text-gray-500 font-serif font-medium">{{ title }}</h1>
-            <div class="dark:text-gray-400 max-w-prose">
+        <article class="sm:prose lg:prose-lg xl:prose-xl">
+          <h1 class="dark:text-gray-500 font-serif font-medium text-4xl">{{ title }}</h1>
+            <p class="text-gray-800 font-normal">{{ summary }}</p>
+            <div class="flex flex-row mb-2">
+              {% for s in skill %}
+              <span class="flex font-medium uppercase text-lg text-gray-600">{{ s }}</span>
+                {% if loop.last %}
+                <span class="flex font-medium uppercase text-lg text-gray-600"></span>
+                {% else %}
+                <span class="flex mx-4 font-medium uppercase text-lg text-gray-600">·</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <span class="block mb-2 font-medium uppercase text-lg text-gray-600">{{ role }}</span>
+            <span class="block mb-4 font-medium uppercase text-lg text-gray-600">{{ timeline }}</span>
+            <div class="prose dark:text-gray-400 max-w-prose">
               {{ layoutContent | safe }}
               {% if tags %}
                 <p>
