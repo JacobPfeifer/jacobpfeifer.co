@@ -35,6 +35,7 @@ module.exports = {
       red: colors.red,
       white: colors.white,
       black: colors.black,
+      pre: "#1f2937",
 
     },
     fontFamily: {
