@@ -1,0 +1,166 @@
+<main
+  class="flex justify-center"
+  x-data="{ 'isDialogOpen': false }"
+  @keydown.escape="isDialogOpen = false"
+>
+  <section class="flex flex-wrap p-4">
+    <button
+      type="button"
+      class="border p-2 bg-white hover:border-gray-500"
+      @click="isDialogOpen = true">Open modal
+    </button>
+
+    <!-- overlay -->
+    <div
+        class="overflow-auto fixed"
+        style="background-color: rgba(0,0,0,1)"
+        x-show="isDialogOpen"
+        :class="{ ' inset-0 z-10 flex items-start justify-center': isDialogOpen }"
+    >
+      <!-- dialog -->
+      <div
+           class="bg-pre m-16 max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
+           x-show="isDialogOpen"
+           @click.away="isDialogOpen = false"
+      >
+          <div class="flex justify-between items-center border-b p-5 text-xl">
+              <h6 class="text-xl text-white font-serif font-medium">python-scraper.py</h6>
+              <button type="button" @click="isDialogOpen = false">
+                <svg 
+                class="fill-current text-white"
+                xmlns="http://www.w3.org/2000/svg" 
+                width="32" 
+                height="32" 
+                viewBox="0 0 18 18"
+              >
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+              </svg>
+              </button>
+          </div>
+          <div class="">
+              <!-- content -->
+            <p class="prose m-0">
+{% highlight "python" %}
+# Import Relevant Libraries
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import requests
+import os
+import time
+
+print('Starting Broswer')
+# Start the Selenium Web Driver
+CHROMEDRIVER_PATH = '/chromedriver'
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH)
+driver.get("https://app.powerbigov.us/view?r=eyJrIjoiYzgwYzFhNTMtMjc4OC00MWM3LTkyYWItZWQ3YTg5ZmRiOGI2IiwidCI6ImE0Yzc1YTkzLTg2MjQtNDBlMS1iYzRhLWE4ZmNlZjhhZDVlOSJ9")
+
+# Adjust the date picker to show all data currently availible. 
+def FixDate():
+    print('Adjusting date picker')
+    date_picker_date = "3/1/2020"
+    action = ActionChains(driver)
+    date_input_xpath = '//*[@id="pvExplorationHost"]/div/div/exploration/div/explore-canvas/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container[5]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div/div[1]/div/div[1]/input'
+
+    # Wait for the page to load
+    wait.until(EC.presence_of_element_located((By.XPATH,date_input_xpath)))
+
+    # Locate the Date Input
+    date_picker = driver.find_element(By.XPATH,date_input_xpath)
+
+    # Erase the prefilled date
+    # There's probably a more elegant way to do this, but I couldn't get "clear" to work.
+    date_picker.click()
+    action.double_click(date_picker)
+    date_picker.send_keys(Keys.BACKSPACE)
+
+    # Type the earliest possible date and submit
+    date_picker.send_keys(date_picker_date)
+    time.sleep(1)
+    date_picker.send_keys(Keys.RETURN)
+
+# Call Fix Date
+FixDate()
+
+# Right click to show context menu and show data as a table.
+# Get Date, Positives, and Negatives and put them in a Dictionary
+print('Show context menu')
+def GetData():
+    context_menu_xpath = '//div[@title="Show as a table"]'
+    show_table_xpath = '//*[@title="Rolling 14 Day Avg of Positive % Of All Tests"]'
+    
+    # Wait until the table finishes loading
+    wait.until(EC.presence_of_element_located((By.XPATH,show_table_xpath)))
+
+    # Right click to reveal the hidden table
+    show_table = driver.find_element(By.XPATH,show_table_xpath)
+    action = ActionChains(driver)
+    action.context_click(show_table).perform()
+    time.sleep(1)
+
+    # Select "Show as Table" from the context menu
+    print('Showing Table of Positive and Negatives Tests')
+    context_menu = driver.find_element(By.XPATH,context_menu_xpath)
+    context_menu.click()
+    time.sleep(5)
+    
+    # Get dates
+    print('Getting Dates')
+    d = []
+    dates = driver.find_elements(By.XPATH,'//div[@class="rowHeaders"]/div/*')
+    for row in dates:
+        date = row.find_element(By.XPATH,'.//div').text
+        d.append(date)
+
+    # Get positives from table
+    print('Getting Positives')
+    pb = []
+    positives = driver.find_elements(By.XPATH,'//div[@class="bodyCells"]/div/div/div[1]/*')
+    for row1 in positives:
+        positive = row1.text
+        pb.append(positive)
+    p = pb[: len(pb) - 5]
+    
+    # Get negatives from table
+    print('Getting Negatives')
+    nb = []
+    negatives = driver.find_elements(By.XPATH,'//div[@class="bodyCells"]/div/div/div[2]/*')
+    for row2 in negatives:
+        negative = row2.text
+        nb.append(negative)
+    n = nb[: len(nb) - 5]
+    
+    # Combine dates, positives, and negatives into a dictionary so JSON can read it
+    print('Formatting data into a dictionary')
+    entries = dict(zip(d, zip(p, n)))
+    return entries
+    
+
+# JSON Bin Settings
+jsonbin_url = 'https://api.jsonbin.io/v3/b/60bf093592164b68bec4d70a'
+headers = {
+    'Content-Type': 'application/json',
+    'X-Master-Key': '$hidden',
+    'X-Bin-Versioning': 'true',
+    'name': 'covid-scraper'
+}
+
+# Post Data to JSONbin
+data = GetData()
+print('Uploading Data to JSONbin')
+req = requests.put(jsonbin_url, json=data, headers=headers)
+print(req.text)
+
+# Close the Browser
+driver.quit()
+{% endhighlight %}
+            </p>
+          </div>
+      </div><!-- /dialog -->
+    </div><!-- /overlay -->
+
+  </section>
+</main>
