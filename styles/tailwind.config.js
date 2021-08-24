@@ -25,6 +25,7 @@ module.exports = {
   theme: {
     colors: {
       primary: '#C6522F',
+      primarydark: "#d46a49",
       secondary: '#A2B9B6',
       altblack: '#001F29',
       gray: colors.gray,

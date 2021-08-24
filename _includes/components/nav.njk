@@ -3,10 +3,10 @@
 {% macro renderNavListItem(entry,rel) -%}
 
   {% if entry.url == page.url or entry.title == eleventyNavigation.parent or entry.title == eleventyComputed.key%}
-    {% set highlight = 'font-medium text-gray-900 focus:border focus:border-gray-700' %}
+    {% set highlight = 'font-medium text-black focus:border' %}
     {% set current = 'aria-current="page"' %}
   {% else %}
-    {% set highlight = 'text-gray-900 focus:border focus:border-gray-700' %}
+    {% set highlight = 'text-black' %}
     {% set current = '' %}
   {% endif %}
  

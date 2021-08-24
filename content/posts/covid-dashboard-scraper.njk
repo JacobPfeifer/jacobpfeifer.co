@@ -13,28 +13,28 @@ timeline: March - August 2020
 
 <p>Early in the pandemic, Sedgwick County was reporting the total number of cases and deaths via a daily PDF. To see how many new cases and deaths were reported each day, you needed to compare it with the previous day's PDF. I wanted to better understand my county's trajectory and how I should shape behavior in response. Intially, I made a spreadsheet and manually entered the data from the daily PDFs. This allowed me to see the delta each day. Sedgwick County eventually released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard.</a> The dashboard made it easier to see how many cases, hospitalizations, and deaths were reported each day but I thought there was an opportunity to tell a more complete story.</p>
 
-<p>Goals:
+<p class="font-medium">Goals:
     <ul>
-        <li>Create better looking and more informative charts for myself, friends and family.</li>>
-        <li>Showcase metics not on display (Case Fatality Rate, Positivity Rate, 7-Day-Moving Average)</li>
+        <li>Capture data from the dashboard to calculate new metics (Case Fatality Rate, Positivity Rate, 7-Day-Moving Average)</li>
+        <li>Create informative charts for myself, friends, and family.</li>
     </ul>
 </p>
 
-<h2 class="font-serif">Solution</h2>
+<h2 class="font-serif">Data Capture</h2>
 
-<p>First, I needed a more efficent way to keep my database current. Poking through the dev tools I found a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that hosted the dashboard data. I was able to get almost everything from this directory via an API call, but some data was missing. More on that soon.</p>
+<p>I needed a more efficent way to keep my database up to date. Copy-Pasting each day was not going to cut it. Poking through dashboard with Chrome dev tools, I found a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> where the data was being hosted. I was able to get almost everything from this directory via an API request, but some data was missing.</p>
 
 {% set modal_img = "/content/images/dev-tools.png" %}
 {% set modal_alt = "Using the Chrome Dev Tools to find the URLs the data is coming from" %}
 {% include "components/lightbox.njk" %} 
 
-<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I used, automatically updates charts if Google Sheets is used as the database. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory.</p>
+<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I used, automatically updates charts if Google Sheets is used as the database. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory into my spreadsheet.</p>
 
-<p>Then I needed to figure out how to get the two attributes I was missing: how many positive and negative tests were reported each day. The only way to get this data was writing a custom web scraper. After doing some research, I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance, allowing it to interact with elements and reveal data that is not visible.</p>
+<p>The public directory had all the data I wanted except for 2 things: how many positive and negative tests were reported each day. The only way to get this infomation through a custom web scraper. After doing some research, I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance which can interact with elements and reveal elements that are hidden.</p>
 
-<h2 class="font-serif">Deliverable</h2>
+<h2 class="font-serif">Python Script</h2>
 
-<p>10 tutorials followed and 10,000 errors pasted into Google later, I had a working script. I'm sure my code is full of inefficencies, but it does the job. Here's the order of operations:
+<p>After following a few tutorials and pasting what felt like thousands of errors into Google, I had a working script. It does the following:
 </p>
 <ol>
     <li>Launch a browser window at the dashboard URL</li>
@@ -45,10 +45,19 @@ timeline: March - August 2020
     <li>Post that data to JSONbin</li>
 </ol>
 
-<div style="width:100%;height:0px;position:relative;padding-bottom:59.900%;"><iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+<p>From there, I could import this data into my spreadsheet the same way as everything else.</p>
+
+{% include "components/covidmodal.njk" %}
+
+<div class="mt-8" style="width:100%;height:0px;position:relative;padding-bottom:59.900%;"><iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 <p class="text-sm text-gray-500">Script in action</p>
 <hr class="mt-0 mb-4">
 
-<h3 class="font-medium font-serif">covid-scraper.py</h2>
+<h2 class="font-serif">Tableau</h2>
 
-{% include "components/covidmodal.njk" %}
+<p></p>
+
+
+
+
+

@@ -1,19 +1,20 @@
 <main
-  class="flex justify-center"
+  class=""
   x-data="{ 'isDialogOpen': false }"
   @keydown.escape="isDialogOpen = false"
 >
-  <section class="flex flex-wrap p-4">
+  <section class="">
     <button
       type="button"
-      class="border p-2 bg-white hover:border-gray-500"
-      @click="isDialogOpen = true">Open modal
+      class="bg-primary text-white rounded-md text-lg px-8 py-2 hover:ring-2 hover:ring-altblack focus:ring-2 focus:ring-altblack "
+      @click="isDialogOpen = true"
+    >
+      View Script
     </button>
 
     <!-- overlay -->
     <div
-        class="overflow-auto fixed"
-        style="background-color: rgba(0,0,0,1)"
+        class="overflow-auto fixed bg-black"
         x-show="isDialogOpen"
         :class="{ ' inset-0 z-10 flex items-start justify-center': isDialogOpen }"
     >
@@ -24,7 +25,7 @@
            @click.away="isDialogOpen = false"
       >
           <div class="flex justify-between items-center border-b p-5 text-xl">
-              <h6 class="text-xl text-white font-serif font-medium">python-scraper.py</h6>
+              <h6 class="text-xl text-white font-serif font-medium">covid-scraper.py</h6>
               <button type="button" @click="isDialogOpen = false">
                 <svg 
                 class="fill-current text-white"
