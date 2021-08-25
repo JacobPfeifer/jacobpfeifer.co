@@ -1,7 +1,7 @@
 ---
 title: COVID-19 Data Project
 date: 2021-08-17
-summary: Scraping and visualizing the COVID-19 pandemic in Sedgwick County, KS.
+summary: A project to scrape and visualize the COVID-19 pandemic in Sedgwick County, KS.
 img: /content/images/sg-co-script.png
 alt: Python Script used to harvest data from the Sedgwick County COVID Dashboard
 skill: [Programming,Data Viz]
@@ -11,28 +11,28 @@ timeline: March - August 2020
 ---
 <h2 class="font-serif">Background</h2>
 
-<p>Early in the pandemic, Sedgwick County was reporting the total number of cases and deaths via a daily PDF. To see how many new cases and deaths were reported each day, you needed to compare it with the previous day's PDF. I wanted to better understand my county's trajectory and how I should shape behavior in response. Intially, I made a spreadsheet and manually entered the data from the daily PDFs. This allowed me to see the delta each day. Sedgwick County eventually released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard.</a> The dashboard made it easier to see how many cases, hospitalizations, and deaths were reported each day but I thought there was an opportunity to tell a more complete story.</p>
+<p>Early in the pandemic, Sedgwick County published a daily PDF to report the total number of COVID-19 cases and deaths. To see the daily reported cases and deaths, I needed to compare each PDF with the previous day's. I wanted to understand my county's trajectory and how I should shape behavior in response. Initially, I made a spreadsheet and manually entered the data from the daily PDFs. That allowed me to see the delta each day. Sedgwick County eventually released a <a target="blank" href="https://sedgwickcounty.maps.arcgis.com/apps/dashboards/7b2b4364a5fa4ba3a015d52450acfe0d">dashboard.</a> The dashboard made it easier to see how many cases, hospitalizations, and deaths were reported each day, but I thought there was an opportunity to tell a more complete story.</p>
 
 <p class="font-medium">Goals:
     <ul>
-        <li>Capture data from the dashboard to calculate new metics (Case Fatality Rate, Positivity Rate, 7-Day-Moving Average)</li>
-        <li>Create informative charts for myself, friends, and family.</li>
+        <li>Capture data from the dashboard to calculate new metrics (Case Fatality Rate, Positivity Rate, 7-Day-Moving Average)</li>
+        <li>Create informative charts for myself, my friends, and my family.</li>
     </ul>
 </p>
 
-<h2 class="font-serif">Data Capture</h2>
+<h2 class="font-serif">Solution</h2>
 
-<p>I needed a more efficent way to keep my database up to date. Copy-Pasting each day was not going to cut it. Poking through dashboard with Chrome dev tools, I found a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> where the data was being hosted. I was able to get almost everything from this directory via an API request, but some data was missing.</p>
+<p>I needed a more efficient way to keep my database up to date. Copy-Pasting each day was not going to cut it. I used Chrome Dev Tools to find a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that was hosting the data. I managed to get almost everything from this directory via an API request, but some data was missing.</p>
 
 {% set modal_img = "/content/images/dev-tools.png" %}
 {% set modal_alt = "Using the Chrome Dev Tools to find the URLs the data is coming from" %}
 {% include "components/lightbox.njk" %} 
 
-<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I used, automatically updates charts if Google Sheets is used as the database. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import the data from the county directory into my spreadsheet.</p>
+<p><a target="blank" href="https://www.tableau.com">Tableau</a>, the data visualization tool I used, automatically updates published charts with a Google Sheets database. I used <a target="blank" href="https://github.com/bradjasper/ImportJSON">ImportJSON</a> to import data from the county directory into my sheet to leverage that functionality.</p>
 
-<p>The public directory had all the data I wanted except for 2 things: how many positive and negative tests were reported each day. The only way to get this infomation through a custom web scraper. After doing some research, I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance which can interact with elements and reveal elements that are hidden.</p>
+<p>The public directory had all the data I wanted except for two things: the daily reported number of positive and negative tests. The only way to get this information was through a custom web scraper. I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance that can interact with elements on the page. I needed this functionality to reveal hidden objects.</p>
 
-<h2 class="font-serif">Python Script</h2>
+<h3 class="font-serif">Python Script</h3>
 
 <p>After following a few tutorials and pasting what felt like thousands of errors into Google, I had a working script. It does the following:
 </p>
@@ -41,7 +41,7 @@ timeline: March - August 2020
     <li>Expand the range of the chart to include all historical data</li>
     <li>Show the chart data in a table view</li>
     <li>Harvest the Dates, Positive Tests, and Negative Tests</li>
-    <li>Orgainze that data into container that can be easily transformed into JSON</li>
+    <li>Organize that data into a JSON-like container</li>
     <li>Post that data to JSONbin</li>
 </ol>
 
@@ -49,15 +49,40 @@ timeline: March - August 2020
 
 {% include "components/covidmodal.njk" %}
 
-<div class="mt-8" style="width:100%;height:0px;position:relative;padding-bottom:59.900%;"><iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+<div class="mt-8 w-full h-0 relative " style="padding-bottom:59.900%;">
+    <iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
+</div>
 <p class="text-sm text-gray-500">Script in action</p>
-<hr class="mt-0 mb-4">
+<hr class="mt-0 mb-8">
 
-<h2 class="font-serif">Tableau</h2>
+<h3 class="font-serif">Tableau Charts</h3>
 
-<p></p>
+<p>If I were going to do this project again, I would use a javascript library like <a target="blank" href="https://www.chartjs.org/">chart.js</a>. Tableau felt powerful when making the individual charts, but making a dashboard was very limiting. Stacking elements on top of one another was clunky. The dashboard was not natively responsive. In the end, I decided to publish the charts individually.
+</p>
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTestsvsDailyTestsRun7DayAVG">Daily Positive Tests and Tests Run - Interactive Chart</a>
+{% set modal_img = "/content/images/daily-positive-tests-and-tests-run.png" %}
+{% set modal_alt = " " %}
+{% include "components/lightbox.njk" %} 
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTests">Daily Positive Tests - Interactive Chart</a>
+{% set modal_img = "/content/images/daily-positive-tests.png" %}
+{% set modal_alt = " " %}
+{% include "components/lightbox.njk" %} 
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyDeaths">Daily Deaths - Interactive Chart</a>
+{% set modal_img = "/content/images/daily-deaths.png" %}
+{% set modal_alt = " " %}
+{% include "components/lightbox.njk" %} 
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/HospitalizationsandPatientsinICU">Hospitalizations and Patients in ICU - Interactive Chart</a>
+{% set modal_img = "/content/images/patients-hospitalized-and-in-icu.png" %}
+{% set modal_alt = " " %}
+{% include "components/lightbox.njk" %} 
 
 
-
-
-
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/ICUBedsAvaliable
+">ICU Beds in Use - Interactive Chart</a>
+{% set modal_img = "/content/images/icu-beds-in-use.png" %}
+{% set modal_alt = " " %}
+{% include "components/lightbox.njk" %} 

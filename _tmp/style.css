@@ -1308,6 +1308,9 @@ select{
 .h-auto{
 	height: auto !important;
 }
+.h-0{
+	height: 0px !important;
+}
 .max-h-full{
 	max-height: 100% !important;
 }
@@ -1342,6 +1345,9 @@ select{
 }
 .max-w-sm{
 	max-width: 24rem !important;
+}
+.max-w-xs{
+	max-width: 20rem !important;
 }
 .flex-none{
 	flex: none !important;
@@ -1582,14 +1588,6 @@ select{
 	padding-top: 2rem !important;
 	padding-bottom: 2rem !important;
 }
-.px-10{
-	padding-left: 2.5rem !important;
-	padding-right: 2.5rem !important;
-}
-.py-3{
-	padding-top: 0.75rem !important;
-	padding-bottom: 0.75rem !important;
-}
 .pt-20{
 	padding-top: 5rem !important;
 }
@@ -1702,10 +1700,6 @@ select{
 .tracking-wider{
 	letter-spacing: 0.05em !important;
 }
-.text-gray-900{
-	--tw-text-opacity: 1 !important;
-	color: rgba(17, 24, 39, var(--tw-text-opacity)) !important;
-}
 .text-black{
 	--tw-text-opacity: 1 !important;
 	color: rgba(0, 0, 0, var(--tw-text-opacity)) !important;
@@ -1725,6 +1719,10 @@ select{
 .text-white{
 	--tw-text-opacity: 1 !important;
 	color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
+}
+.text-gray-900{
+	--tw-text-opacity: 1 !important;
+	color: rgba(17, 24, 39, var(--tw-text-opacity)) !important;
 }
 .text-gray-500{
 	--tw-text-opacity: 1 !important;
