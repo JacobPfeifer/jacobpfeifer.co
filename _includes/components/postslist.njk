@@ -11,7 +11,7 @@
 	}"
 	@click="handleClick"
 	>
-		<img class="w-full flex-none" src="{{ post.data.img }}" alt="{{ post.data.alt }}">
+		{% image post.data.img, post.data.alt %}
 		<div class="flex flex-1 flex-col justify-between">
 			<div class="px-4 pt-6">
 				<h3 class="font-medium font-serif text-black text-xl">
