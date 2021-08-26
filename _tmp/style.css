@@ -1314,6 +1314,9 @@ select{
 .grid-cols-1{
 	grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 }
+.grid-cols-2{
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
 .flex-row{
 	flex-direction: row !important;
 }
@@ -1356,6 +1359,9 @@ select{
 }
 .self-center{
 	align-self: center !important;
+}
+.justify-self-center{
+	justify-self: center !important;
 }
 .overflow-auto{
 	overflow: auto !important;
@@ -1429,10 +1435,6 @@ select{
 .bg-green-600{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity)) !important;
-}
-.bg-gray-800{
-	--tw-bg-opacity: 1 !important;
-	background-color: rgba(31, 41, 55, var(--tw-bg-opacity)) !important;
 }
 .fill-current{
 	fill: currentColor !important;
@@ -2195,10 +2197,6 @@ select{
 
 	.lg\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-	}
-
-	.lg\:grid-cols-5{
-		grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
 	}
 
 	.lg\:px-16{

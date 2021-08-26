@@ -2,7 +2,7 @@
 title: COVID-19 Data Project
 date: 2021-08-17
 summary: A project to scrape and visualize the COVID-19 pandemic in Sedgwick County, KS.
-img: 
+img: sg-co-script.png
 alt: Python Script used to harvest data from the Sedgwick County COVID Dashboard
 skill: [Programming,Data Viz]
 tool: [Python,Tableau]
@@ -60,7 +60,7 @@ timeline: March - August 2020
 
 <h2 class="font-serif">Tableau Charts</h2>
 
-<p class="">My favorite chart compares 'positive tests' and 'tests run'. The CDC has said if the percent of tests that are positive is over 10%, that area is experiencing significant uncontrolled spread. With the x-axis of 'tests run' set ten times larger than 'positive tests,' it is easy to see when the positive test rate goes over 10%. If you hover over any data point, a tooltip will show the number of positive tests and tests run, as well as the positive test rate.</p>
+<p class="">My favorite chart compares 'positive tests' and 'tests run.' The CDC has said if the percent of tests that are positive is over 10%, that area is experiencing significant uncontrolled spread. With the x-axis of 'tests run' set ten times larger than 'positive tests,' it is easy to see when the positive test rate goes over 10%. If you hover over any data point, a tooltip will show the number of positive tests and tests run, as well as the positive test rate.</p>
 
 <a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTestsvsDailyTestsRun7DayAVG">Daily Positive Tests and Tests Run</a>
 {% set modal_img = "daily-positive-tests-and-tests-run.png" %}
@@ -84,7 +84,7 @@ timeline: March - August 2020
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
 
-<p>If I had more time to spend on this project, I would recreate the entire Sedgwick County dashboard one-to-one, supplemented with my own charts like 'ICU Beds in Use'.</p>
+<p>If I had more time to spend on this project, I would recreate the entire Sedgwick County dashboard one-to-one, supplemented with my charts like 'ICU Beds in Use.'</p>
 
 <a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/ICUBedsAvaliable
 ">ICU Beds in Use</a>
@@ -96,8 +96,6 @@ timeline: March - August 2020
 
 <p class="">Overall I'm pleased with how things turned out.  One friend told me they kept the charts open in a browser tab for over a month as we entered the second wave. I also feel like I learned two valuable skills in Python and Tableau. I'm not an expert in either one, but the next time I reach for one, I'll have a huge leg up.</p>
 
-<p>If I were going to do this project again, I would try a javascript library like <a target="blank" href="https://www.chartjs.org/">chart.js</a>. Tableau felt powerful when making the individual charts, but making a dashboard was very limiting. It is also not natively responsive. 
-</p>
 
 
 
