@@ -1295,9 +1295,6 @@ select{
 .max-w-xs{
 	max-width: 20rem !important;
 }
-.flex-none{
-	flex: none !important;
-}
 .flex-1{
 	flex: 1 1 0% !important;
 }
@@ -1369,11 +1366,11 @@ select{
 .rounded-lg{
 	border-radius: 0.5rem !important;
 }
-.rounded{
-	border-radius: 0.25rem !important;
-}
 .rounded-md{
 	border-radius: 0.375rem !important;
+}
+.rounded{
+	border-radius: 0.25rem !important;
 }
 .border{
 	border-width: 1px !important;
@@ -1484,6 +1481,10 @@ select{
 .py-4{
 	padding-top: 1rem !important;
 	padding-bottom: 1rem !important;
+}
+.py-6{
+	padding-top: 1.5rem !important;
+	padding-bottom: 1.5rem !important;
 }
 .px-3{
 	padding-left: 0.75rem !important;

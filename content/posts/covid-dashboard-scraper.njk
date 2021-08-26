@@ -20,7 +20,7 @@ timeline: March - August 2020
     </ul>
 </p>
 
-<h2 class="font-serif">Solution</h2>
+<h2 class="font-serif">Ideating</h2>
 
 <p>I needed a more efficient way to keep my database up to date. Copy-Pasting each day was not going to cut it. I used Chrome Dev Tools to find a <a target="blank" href="https://services7.arcgis.com/McLat6HlPl45bNBv/ArcGIS/rest/services">public directory</a> that was hosting the data. I managed to get almost everything from this directory via an API request, but some data was missing.</p>
 
@@ -32,57 +32,75 @@ timeline: March - August 2020
 
 <p>The public directory had all the data I wanted except for two things: the daily reported number of positive and negative tests. The only way to get this information was through a custom web scraper. I decided to use <a target="blank" href="https://www.selenium.dev/selenium/docs/api/py/">Selenium</a> which is written in Python. Selenium runs a browser instance that can interact with elements on the page. I needed this functionality to reveal hidden objects.</p>
 
-<h3 class="font-serif">Python Script</h3>
+<h2 class="font-serif">Python Script</h2>
 
 <p>After following a few tutorials and pasting what felt like thousands of errors into Google, I had a working script. It does the following:
 </p>
 <ol>
-    <li>Launch a browser window at the dashboard URL</li>
-    <li>Expand the range of the chart to include all historical data</li>
-    <li>Show the chart data in a table view</li>
-    <li>Harvest the Dates, Positive Tests, and Negative Tests</li>
-    <li>Organize that data into a JSON-like container</li>
-    <li>Post that data to JSONbin</li>
+    <li>Launches a browser window at the dashboard URL</li>
+    <li>Expands the range of the chart to include all historical data</li>
+    <li>Shows the chart data in a table view</li>
+    <li>Harvests the Dates, Positive Tests, and Negative Tests</li>
+    <li>Organizes that data into a JSON-like container</li>
+    <li>Posts that data to JSONbin</li>
 </ol>
 
 <p>From there, I could import this data into my spreadsheet the same way as everything else.</p>
 
 {% include "components/covidmodal.njk" %}
 
-<div class="mt-8 w-full h-0 relative " style="padding-bottom:59.900%;">
-    <iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
-</div>
-<p class="text-sm text-gray-500">Script in action</p>
-<hr class="mt-0 mb-8">
+<figure class="my-4">
+    <div class="w-full h-0 relative " style="padding-bottom:59.900%;">
+        <iframe src="https://streamable.com/e/n2oyxn?loop=0" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
+    </div>
+    <figcaption class="text-sm m-0 py-6 text-gray-500">Script in action</figcaption>
+    <hr class="mt-0 mb-8">
+</figure>
 
-<h3 class="font-serif">Tableau Charts</h3>
 
-<p>If I were going to do this project again, I would use a javascript library like <a target="blank" href="https://www.chartjs.org/">chart.js</a>. Tableau felt powerful when making the individual charts, but making a dashboard was very limiting. Stacking elements on top of one another was clunky. The dashboard was not natively responsive. In the end, I decided to publish the charts individually.
-</p>
+<h2 class="font-serif">Tableau Charts</h2>
 
-<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTestsvsDailyTestsRun7DayAVG">Daily Positive Tests and Tests Run - Interactive Chart</a>
+<p class="">My favorite chart compares 'positive tests' and 'tests run'. The CDC has said if the percent of tests that are positive is over 10%, that area is experiencing significant uncontrolled spread. With the x-axis of 'tests run' set ten times larger than 'positive tests,' it is easy to see when the positive test rate goes over 10%. If you hover over any data point, a tooltip will show the number of positive tests and tests run, as well as the positive test rate.</p>
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTestsvsDailyTestsRun7DayAVG">Daily Positive Tests and Tests Run</a>
 {% set modal_img = "daily-positive-tests-and-tests-run.png" %}
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
 
-<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTests">Daily Positive Tests - Interactive Chart</a>
+<p class="">Sedgwick County has continually updated the dashboard of the past year, duplicating the efforts of a few of my charts. </p>
+
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyPositiveTests">Daily Positive Tests</a>
 {% set modal_img = "daily-positive-tests.png" %}
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
 
-<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyDeaths">Daily Deaths - Interactive Chart</a>
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/DailyDeaths">Daily Deaths</a>
 {% set modal_img = "daily-deaths.png" %}
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
 
-<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/HospitalizationsandPatientsinICU">Hospitalizations and Patients in ICU - Interactive Chart</a>
+<a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/HospitalizationsandPatientsinICU">Hospitalizations and Patients in ICU</a>
 {% set modal_img = "patients-hospitalized-and-in-icu.png" %}
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
 
+<p>If I had more time to spend on this project, I would recreate the entire Sedgwick County dashboard one-to-one, supplemented with my own charts like 'ICU Beds in Use'.</p>
 
 <a target="blank" href="https://public.tableau.com/app/profile/jacob.pfeifer/viz/SedwickCounty7DayMovingAverage/ICUBedsAvaliable
-">ICU Beds in Use - Interactive Chart</a>
+">ICU Beds in Use</a>
 {% set modal_img = "icu-beds-in-use.png" %}
 {% set modal_alt = " " %}
 {% include "components/lightbox.njk" %} 
+
+<h2 class="">Closing Thoughts</h2>
+
+<p class="">Overall I'm pleased with how things turned out.  One friend told me they kept the charts open in a browser tab for over a month as we entered the second wave. I also feel like I learned two valuable skills in Python and Tableau. I'm not an expert in either one, but the next time I reach for one, I'll have a huge leg up.</p>
+
+<p>If I were going to do this project again, I would try a javascript library like <a target="blank" href="https://www.chartjs.org/">chart.js</a>. Tableau felt powerful when making the individual charts, but making a dashboard was very limiting. It is also not natively responsive. 
+</p>
+
+
+
+
+
+

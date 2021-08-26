@@ -7,7 +7,7 @@
       @keydown.escape.window="imgModal = ''"
       class="fixed w-full h-100 z-50 inset-0 overflow-hidden flex justify-center items-center bg-black "
     >
-      <div
+      <figure
         @click.away="imgModal = ''"
         class="z-50 flex flex-col max-h-full overflow-y-auto"
       >
@@ -31,11 +31,11 @@
           :src="imgModalSrc"
           class="object-contain px-4 m-0 h-auto"
         >
-        <p 
+        <figcaption 
           x-text="imgModalDesc" 
           class="text-white pl-4 py-4"
-        ></p>
-      </div>
+        ></figcaption>
+      </figure>
     </div>
   </template>
 </div>
@@ -45,15 +45,15 @@
   class=""
 >
   <div class="flex justify-start">
-      <div class="my-4">
+      <figure class="my-4">
         <a 
-          @click="$dispatch('img-modal', {  imgModalSrc: '/content/images/{{ modal_img }}', imgModalDesc: '/content/images/{{ modal_alt }}' })" 
+          @click="$dispatch('img-modal', {  imgModalSrc: '/content/images/{{ modal_img }}', imgModalDesc: '{{ modal_alt }}' })" 
           class="cursor-pointer"
         >
         {% image modal_img, modal_alt %}
         </a>
-        <p class="text-sm text-gray-600"> {{ modal_alt }} </p>
+        <figcaption class="text-sm text-gray-600 py-6 m-0"> {{ modal_alt }} </figcaption>
         <hr class="m-0">
-      </div>
+      </figure>
     </div>
 </div>
