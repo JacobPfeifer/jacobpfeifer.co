@@ -9,10 +9,16 @@ tool: [Sketch]
 role: Volunteer Designer
 timeline: Summer 2019
 ---
-{% set modal_img = "impact-logo-before-after.png" %}
-{% set modal_alt = "Before and After" %}
-{% include "components/lightbox.njk" %} 
-<p>Impact is an ultimate frisbee club team based out of Wichita, KS. I co-founded the team in 2015 and served as a captain until 2019. After a few years with our original logo, it was time for a visual refresh. My goal was to create a logo that better captured the team identity, referenced something unique about our culture in Wichita, and was more adaptable in size, color, and layout.</p>
+<h2>Background</h2>
+<p>Impact is an ultimate frisbee club team based out of Wichita, KS. I co-founded the team in 2015 and served as a captain until 2019. After a few years with our original logo, it was time for a visual refresh. 
+    
+<p class="font-medium">Goals
+    <ul> Create a logo that:
+        <li>better captured the team identity</li>
+        <li>referenced something unique about our culture in Wichita</li>
+        <li>was more adaptable in size, color, and layout</li>
+    </ul>
+</p>
 
 {% set modal_img = "impact-logo-2016.png" %}
 {% set modal_alt = "Original Logo" %}
@@ -42,6 +48,44 @@ timeline: Summer 2019
 {% set modal_img = "impact-gear-2019.png" %}
 {% set modal_alt = "Jerseys, Shorts, Sun Hoodie, Reversible, and Hat" %}
 {% include "components/lightbox.njk" %}
+
+<p>Here they are in real life.</p>
+<div class="flex flex-col gap-4">
+    <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "dark-jersey.jpg" %}
+            {% set modal_alt = "Dark Jersey" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "white-jersey.jpg" %}
+            {% set modal_alt = "White Jersey" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "shorts.jpg" %}
+            {% set modal_alt = "Shorts" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "sun-hoodie.jpg" %}
+            {% set modal_alt = "Sun Hoodie" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "reversible.jpg" %}
+            {% set modal_alt = "Reversible" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+        <div class="rounded-lg overflow-hidden">
+            {% set modal_img = "hat.jpg" %}
+            {% set modal_alt = "Hat" %}
+            {% include "components/lightbox.njk" %}
+        </div>
+    </div>
+</div>
+
+
 
 
  

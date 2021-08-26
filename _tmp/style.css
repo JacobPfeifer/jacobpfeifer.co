@@ -1341,6 +1341,9 @@ select{
 .justify-between{
 	justify-content: space-between !important;
 }
+.gap-4{
+	gap: 1rem !important;
+}
 .gap-y-8{
 	row-gap: 2rem !important;
 }
@@ -1426,6 +1429,10 @@ select{
 .bg-green-600{
 	--tw-bg-opacity: 1 !important;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity)) !important;
+}
+.bg-gray-800{
+	--tw-bg-opacity: 1 !important;
+	background-color: rgba(31, 41, 55, var(--tw-bg-opacity)) !important;
 }
 .fill-current{
 	fill: currentColor !important;
@@ -2131,6 +2138,10 @@ select{
 		flex-shrink: 1 !important;
 	}
 
+	.md\:grid-cols-3{
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	}
+
 	.md\:flex-row{
 		flex-direction: row !important;
 	}
@@ -2184,6 +2195,10 @@ select{
 
 	.lg\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+	.lg\:grid-cols-5{
+		grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
 	}
 
 	.lg\:px-16{
