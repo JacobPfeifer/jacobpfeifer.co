@@ -50,7 +50,7 @@
           @click="$dispatch('img-modal', {  imgModalSrc: '/content/images/{{ modal_img }}', imgModalDesc: '{{ modal_alt }}' })" 
           class="cursor-pointer"
         >
-        {% image modal_img, modal_alt %}
+        {% image modal_img, modal_alt, "100%" %}
         </a>
         <figcaption class="text-sm text-gray-600 py-6 m-0"> {{ modal_alt }} </figcaption>
         <hr class="m-0">
