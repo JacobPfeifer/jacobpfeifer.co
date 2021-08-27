@@ -12,10 +12,7 @@ module.exports = {
     enabled: true,
     content: [
       "_site/**/*.html",
-      "./_includes/components/**/*.njk",
-      "./_includes/layouts/**/*.njk",
-      "./content/pages/**/*.md",
-      "./content/posts/**/*.njk",
+      "./**/*.njk"
     ],
     options: {
       safelist: [],
