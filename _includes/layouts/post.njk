@@ -63,48 +63,39 @@ section: post
          
           {% if previousPost %}
             {% if nextPost %}
-              <div class="justify-self-start">
-                <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
+              <div class="justify-self-start flex">
+                <a class="text-primary self-center no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
               </div>
-              <div class="justify-self-end">
-                <a class="text-primary text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
+              <div class="justify-self-end flex">
+                <a class="text-primary self-center text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
               </div>
             {% else %}
-              <div class="justify-self-start">
-                <a class="text-primary  no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ '/' | url }}">← Projects</a>
+              <div class="justify-self-start flex">
+                <a class="text-primary self-center no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ '/' | url }}">← Projects</a>
               </div>
-              <div class="justify-self-end">
-                <a class="text-primary text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
+              <div class="justify-self-end flex">
+                <a class="text-primary self-center text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
               </div>
             {% endif %}
           {% endif %}
 
           {% if nextPost %}
             {% if previousPost %}
-              <div class="justify-self-start">
-                <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
+              <div class="justify-self-start flex">
+                <a class="text-primary self-center no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">{{ previousPost.data.title }} →</a>
               </div>
-              <div class="justify-self-end"></div>
-                <a class="text-primary text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
+              <div class="justify-self-end flex"></div>
+                <a class="text-primary self-center text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
               </div>
             {% else %}
-              <div class="justify-self-start">
-                <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ '/' | url }}">← Projects</a>
+              <div class="justify-self-start flex">
+                <a class="text-primary self-center no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ '/' | url }}">← Projects</a>
               </div>
-              <div class="justify-self-end">
-                <a class="text-primary text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
+              <div class="justify-self-end flex">
+                <a class="text-primary self-center text-right ml-auto no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>
               </div>
             {% endif %}
           {% endif %}
-
-          
-          <!-- <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ '/' | url }}">← Projects</a>
-          {% if nextPost %}
-          <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ nextPost.url }}">Next Post</a>
-          {% endif %}
-          {% if previousPost %}
-          <a class="text-primary no-underline hover:underline focus:ring-2 focus:ring-altblack text-lg" href="{{ previousPost.url }}">Previous Post</a>
-          {% endif %} -->
         </nav>
       </div>
     </article>
