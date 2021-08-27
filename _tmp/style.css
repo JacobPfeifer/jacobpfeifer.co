@@ -1215,6 +1215,9 @@ select{
 .mb-8{
 	margin-bottom: 2rem !important;
 }
+.ml-auto{
+	margin-left: auto !important;
+}
 .mb-4{
 	margin-bottom: 1rem !important;
 }
@@ -1359,6 +1362,12 @@ select{
 }
 .self-center{
 	align-self: center !important;
+}
+.justify-self-start{
+	justify-self: start !important;
+}
+.justify-self-end{
+	justify-self: end !important;
 }
 .justify-self-center{
 	justify-self: center !important;
@@ -1534,6 +1543,9 @@ select{
 }
 .text-center{
 	text-align: center !important;
+}
+.text-right{
+	text-align: right !important;
 }
 .font-serif{
 	font-family: Bitter, serif !important;

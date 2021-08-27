@@ -1,7 +1,7 @@
 {
   "layout": "layouts/post.njk",
   "permalink": "/{{ title | slug }}/index.html",
-  "author": "Anonymous",
+  "author": "Jacob Pfeifer",
   "tags": [
     "post"
   ]
