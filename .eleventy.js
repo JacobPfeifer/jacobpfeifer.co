@@ -66,9 +66,7 @@ module.exports = function(eleventyConfig) {
   // });
 
 
-  // Tailwind pass through and watch target
-  eleventyConfig.addWatchTarget("./_tmp/style.css");
-  eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
+
 
   // Alpine.js pass through
   eleventyConfig.addPassthroughCopy({
@@ -174,7 +172,11 @@ module.exports = function(eleventyConfig) {
 
   // Minify HTML output
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if (outputPath.indexOf(".html") > -1) {
+    if (
+      process.env.ELEVENTY_ENV == 'production' &&
+      outputPath &&
+      outputPath.endsWith('.html')
+      ) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,

@@ -8,17 +8,12 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: {
-    enabled: true,
-    content: [
+  purge: [
       "_site/**/*.html",
-      "./**/*.njk"
+      "./**/*.njk",
+      "./**/*.md",
     ],
-    options: {
-      safelist: [],
-    },
-  },
-  darkMode: 'class',
+  darkMode: false,
   theme: {
     colors: {
       primary: '#C6522F',
