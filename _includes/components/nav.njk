@@ -3,7 +3,7 @@
 {% macro renderNavListItem(entry,rel) -%}
 
   {% if entry.url == page.url or entry.title == eleventyNavigation.parent or entry.title == eleventyComputed.key%}
-    {% set highlight = 'font-medium text-black focus:border' %}
+    {% set highlight = 'font-medium text-black' %}
     {% set current = 'aria-current="page"' %}
   {% else %}
     {% set highlight = 'text-black' %}
@@ -28,7 +28,7 @@
     transition
     duration-200
     ease-in-out
-    focus:shadow-encompass focus:ring-2 focus:ring-altblack
+    focus:shadow-encompass focus:ring-2 focus:ring-altblack focus-visible::ring-2 focus-visible::ring-altblack outline-none
     {{ highlight }}
     " 
     href="{{ entry.url | url }}">{{ entry.title }}

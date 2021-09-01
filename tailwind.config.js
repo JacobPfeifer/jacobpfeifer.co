@@ -105,6 +105,11 @@ module.exports = {
     },
   }, 
   variants: {
+    extend: {
+      ringWidth: ['focus-visible'],
+      ringColor: ['focus-visible'],
+      outline: ['focus-visible'],
+    }
   },
   plugins: [
     require('@tailwindcss/typography')({
