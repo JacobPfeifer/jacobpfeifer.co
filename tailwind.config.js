@@ -77,7 +77,10 @@ module.exports = {
                 'text-decoration': 'underline',
                 },
               '&:focus': {
-                'box-shadow': '0 0 0 2px #001F29'
+                'box-shadow': '0 0 0 2px #001F29',
+              },
+              '&:focus-visible': {
+                'outline': 'none',
               },
             },
             'ul.footer-nav': {
