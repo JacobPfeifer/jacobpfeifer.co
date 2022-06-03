@@ -6,10 +6,12 @@ section: page
     <div class="mx-auto max-w-lg">
         <h1 class="font-medium text-4xl font-serif text-center mt-16 mb-0 mx-0 p-0">{{ title }}</h1>
         <h2 class="font-sans text-xl font-normal text-center mt-1 mb-0 mx-0 p-0">{{ subtitle }}</h2>
-        <p class="text-center text-lg mt-8 leading-6 ">{{ statement }}</p>
+        <p class="text-center text-lg mt-8 leading-6">{{ statement }}</p>
+        
     </div>
 </article>
 <div class="bg-gray-200 h-full px-6 md:px-12 lg:px-16 xl:px-24lg:px-8 flex justify-center pb-12">
+    
     {% set postslist = collections.post %}
     {% include "components/postslist.njk" %}
 </div>
