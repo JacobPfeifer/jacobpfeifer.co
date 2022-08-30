@@ -1,7 +1,7 @@
 ---
 title: Jacob Pfeifer
-subtitle: Design Research Student
-statement: I am working towards a career in UX because I want my work to have a positive impact. My hope is to design a more equitable, inclusive, and compassionate future.
+subtitle: Designer
+statement: I am passionate about disentangling ambiguity to create intuitive and accessible experiences. I approach every design with inclusivity, compassion, and a focus on equity, hoping those values will eventually be reflected back in to the world.
 date: Last Modified 
 permalink: /
 layout: layouts/projects.njk
