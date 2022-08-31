@@ -13,7 +13,7 @@ I’m a multidisciplinary designer with a focus on research and information arch
 
 I recently graduated from the Austin Center for Design where I’m earned a certificate in Interaction Design and Social Entrepreneurship. At AC4D, was we worked on wicked problems. I honed my skills design research, sense-making, ideation, story telling, usability testing, and interaction design. I take pride in being able to ask the right questions to get the most out of an idea, whether that be during user research, generative ideation, or design review. 
 
-I believe design has incredible power. We create objects, spaces, tools, and experiences that shape the world. Everything we design, in return, designs us back. We are the result of the experiences we’ve had, the environments we move through, and products we use. I approach every project with inclusivity, compassion, and a focus on equity, hoping those values will eventually  be reflected back into the world. 
+I believe design has incredible power. We create objects, spaces, tools, and experiences that shape the world. Everything we design, in return, designs us back. We are the result of the experiences we’ve had, the environments we move through, and products we use. I approach every project with inclusivity, compassion, and a focus on equity, hoping those values will eventually be reflected back into the world. 
 
 I love technology and before settling on design, I dabbled python scripting, front end web development, and data visualization. I love to apply my technical background to collaborate closely with developers and lean into the handoff between design and engineering. 
 
